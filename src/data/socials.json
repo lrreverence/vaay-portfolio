@@ -1,0 +1,19 @@
+{
+  "socials": [
+    {
+      "name": "LinkedIn",
+      "href": "https://linkedin.com/in/",
+      "icon": "linkedin"
+    },
+    {
+      "name": "GitHub",
+      "href": "https://github.com/",
+      "icon": "github"
+    },
+    {
+      "name": "Email",
+      "href": "mailto:caesarisidrovaay@gmail.com",
+      "icon": "mail"
+    }
+  ]
+}
