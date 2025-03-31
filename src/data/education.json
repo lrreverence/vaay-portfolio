@@ -1,12 +1,12 @@
 {
   "education": [
     {
-      "name": "Digipen Institute of Technology Singapore",
-      "href": "https://www.digipen.edu.sg",
-      "title": "BS in Computer Science in Real-Time Interactive Simulation",
-      "logo": "/digipen.png",
-      "start": "Sep 2019",
-      "end": "Apr 2023",
+      "name": "University of the Philippines Cebu",
+      "href": "https://www.upcebu.edu.ph/",
+      "title": "Bachelor of Science in Computer Science",
+      "logo": "/upcebu.png",
+      "start": "Aug 2022",
+      "end": "TBA",
       "description": [
         "Graduated with a Minor in Mathematics",
         "President of Digipen Student Management Committee for freshman year",
@@ -26,10 +26,10 @@
       ]
     },
     {
-      "name": "Singapore Polytechnic",
-      "href": "https://www.sp.edu.sg",
+      "name": "Philippine Science High School - MIMAROPA Region Campus",
+      "href": "https://www.facebook.com/pisaymrc/",
       "title": "Diploma in Games Design and Development",
-      "logo": "/sp.png",
+      "logo": "/pisay.png",
       "start": "Apr 2014",
       "end": "May 2017"
     }
