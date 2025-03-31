@@ -1,11 +1,11 @@
 {
   "career": [
     {
-      "name": "DBS Bank",
-      "href": "https://www.dbs.com.sg",
-      "title": "Graduate Associate (SEED Programme)",
+      "name": "Bayoa Analytics",
+      "href": "https://www.bayoa-analytics.com",
+      "title": "Full Stack Developer",
       "logo": "/dbs.png",
-      "start": "Jul 2023",
+      "start": "Jul 2024",
       "description": [
         "Developed the Java backend for a bank account servicing process with multiple channel integrations using Activiti workflow",
         "Built a custom database migration tool using Python and MariaDB and facilitated the migration of 1000+ processes from a vendor platform"
