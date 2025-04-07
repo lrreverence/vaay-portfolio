@@ -3,6 +3,7 @@ import LinkWithIcon from "@/components/LinkWithIcon";
 import Posts from "@/components/Posts";
 import Projects from "@/components/Projects";
 import Socials from "@/components/Socials";
+import TechStack from "@/components/TechStack";
 import { Button } from "@/components/ui/Button";
 import { getPosts } from "@/lib/posts";
 import {
@@ -60,6 +61,8 @@ export default async function Home() {
       </section>
 
       <Experience />
+
+      <TechStack />
 
       <section className="flex flex-col gap-8">
         <div className="flex justify-between">
