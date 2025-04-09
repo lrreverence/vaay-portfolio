@@ -38,13 +38,29 @@ const techStack: TechItem[] = [
     name: "MongoDB",
     icon: "/tech/mongodb.svg",
   },
+  {
+    name: "PostgreSQL",
+    icon: "/tech/postgresql.svg",
+  },
+  {
+    name: "Docker",
+    icon: "/tech/docker.svg",
+  },
+  {
+    name: "Git",
+    icon: "/tech/git.svg",
+  },
+  {
+    name: "AWS",
+    icon: "/tech/aws.svg",
+  },
 ];
 
 export default function TechStack() {
   return (
     <section className="flex flex-col gap-8">
       <h2 className="title text-2xl sm:text-3xl">tech stack</h2>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {techStack.map((tech) => (
           <div
             key={tech.name}
