@@ -7,20 +7,20 @@
       "logo": "/bayoa.png",
       "start": "Jul 2024",
       "description": [
-        "Developed the Java backend for a bank account servicing process with multiple channel integrations using Activiti workflow",
-        "Built a custom database migration tool using Python and MariaDB and facilitated the migration of 1000+ processes from a vendor platform"
+        "Optimized database performance by 30%, as measured by faster query execution times, by creating and refining database schemas for deals and pipeline stages to ensure efficient data storage and retrieval",
+        "Developed and tested CRUD APIs for deals and pipeline stages, resolving 14 issues and contributing to improved CRM functionality and a successful deployment", "Designed and implemented a card-based UI for pipeline summary, enhancing visual clarity and user interaction, as measured by positive user feedback, by organizing pipeline data into concise and visually appealing cards with key metrics"
       ]
     },
     {
-      "name": "Bayoa Analytics",
-      "href": "https://www.dbs.com.sg",
-      "title": "Software Developer (Intern)",
-      "logo": "/bayoa.png",
-      "start": "May 2022",
-      "end": "Dec 2022",
+      "name": "Teaching and Learning Resource Center",
+      "href": "https://tlrc.upcebu.edu.ph/",
+      "title": "Computer Science Tutor",
+      "logo": "/tlrc.jpg",
+      "start": "Sep 2023",
+      "end": "Present",
       "description": [
-        "Worked on the backend for the digital exchange and asset custody application using Spring Boot and Java",
-        "Built an admin dashboard web application for a DBS Metaverse event using Spring Security and Angular"
+        "Provided academic support in CMSC 11 (Intro to Computer Science), CMSC 21 (Fundamentals of Programming),CMSC 56 (Discrete Math), and CMSC 123 (Data Structures), mentoring students through foundational and intermediate computer science concepts",
+        "Designed and delivered clear explanations, coding exercises, and problem-solving strategies to help students grasp foundational and advanced topics such as recursion, graph theory, and memory management"
       ]
     }
   ]
