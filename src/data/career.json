@@ -3,9 +3,9 @@
     {
       "name": "Bayoa Analytics",
       "href": "https://www.bayoa-analytics.com",
-      "title": "Full Stack Developer",
+      "title": "Full Stack Developer", 
       "logo": "/bayoa.png",
-      "start": "Jul 2024",
+      "start": "Jul  2024",
       "description": [
         "Optimized database performance by 30%, as measured by faster query execution times, by creating and refining database schemas for deals and pipeline stages to ensure efficient data storage and retrieval",
         "Developed and tested CRUD APIs for deals and pipeline stages, resolving 14 issues and contributing to improved CRM functionality and a successful deployment", "Designed and implemented a card-based UI for pipeline summary, enhancing visual clarity and user interaction, as measured by positive user feedback, by organizing pipeline data into concise and visually appealing cards with key metrics"

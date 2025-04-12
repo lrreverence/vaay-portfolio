@@ -42,25 +42,7 @@
         }
       ]
     },
-    {
-      "name": "Portfolio 2023 (Outdated)",
-      "description": "Simple markdown portfolio made with Astro 🚀",
-      "href": "https://test.netlify.app",
-      "image": "/old-portfolio.png",
-      "tags": ["Astro", "TailwindCSS", "Netlify", "SEO"],
-      "links": [
-        {
-          "name": "Website",
-          "href": "https://test.netlify.app",
-          "icon": "globe"
-        },
-        {
-          "name": "Source",
-          "href": "https://github.com",
-          "icon": "github"
-        }
-      ]
-    },
+
     {
       "name": "Rapid Ride Fight (Final Year)",
       "description": "3D capture-the-flag, multiplayer boat fighting, with smart AI and water graphics",
