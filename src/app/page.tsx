@@ -1,32 +1,30 @@
-import Experience from "@/components/Experience";
-import LinkWithIcon from "@/components/LinkWithIcon";
-import Posts from "@/components/Posts";
-import Projects from "@/components/Projects";
-import Socials from "@/components/Socials";
-import TechStack from "@/components/TechStack";
-import { Button } from "@/components/ui/Button";
-import { getPosts } from "@/lib/posts";
-import {
-  ArrowDownRight,
-  ArrowRightIcon,
-  FileDown
-} from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import path from "path";
+import Image from "next/image";
+import { ArrowDownRight, FileDown } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import Socials from "@/components/Socials";
+import Experience from "@/components/Experience";
+import TechStack from "@/components/TechStack";
+import LinkWithIcon from "@/components/LinkWithIcon";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+import Projects from "@/components/Projects";
+import Posts from "@/components/Posts";
+import { getPosts } from "@/lib/posts";
+import ChatInterface from "@/components/ChatInterface";
 
 const blogDirectory = path.join(process.cwd(), "content");
-const LIMIT = 2; // max show 2
+const posts = getPosts(blogDirectory);
+const LIMIT = 3;
 
 export default async function Home() {
-  const posts = await getPosts(blogDirectory, LIMIT);
-
+  const postsData = await posts;
   return (
     <article className="mt-8 flex flex-col gap-16 pb-16">
-      <section className="flex flex-col items-st`art gap-8 md:flex-row-reverse md:items-center md:justify-between">
+      <section className="flex flex-col items-start gap-8 md:flex-row-reverse md:items-center md:justify-between">
         <Image
           className="rounded-lg"
-          src="/vercel.svg"
+          src="/vaaypp.png"
           alt="Photo of Vaay"
           width={175}
           height={175}
@@ -37,15 +35,13 @@ export default async function Home() {
           <p className="mt-4 font-light">
             {/* Update my age */}
             21-year-old BSCS student from the Philippines 🇵🇭
-
-
           </p>
           <p className="mt-2 font-light">
-          Passionate about agriculture tech, full-stack development, and building smart systems.
-          I fuel my coding sessions with determination (and probably instant coffee). 🚀
+            Passionate about agriculture tech, full-stack development, and building smart systems.
+            I fuel my coding sessions with determination (and probably instant coffee). 🚀
           </p>
           <div className="mt-4 flex items-end gap-1">
-            <p className="font-semibold">Ask the chatbot anything about me</p>
+            <p className="font-semibold">Let's build something amazing together!</p>
             <ArrowDownRight className="size-5 animate-bounce" />
           </div>
           <section className="mt-8 flex items-center gap-8">
@@ -87,7 +83,12 @@ export default async function Home() {
             text="view more"
           />
         </div>
-        <Posts posts={posts} />
+        <Posts posts={postsData} />
+      </section>
+
+      <section className="flex flex-col gap-8">
+        <h2 className="title text-3xl">chat with my portfolio</h2>
+        <ChatInterface />
       </section>
     </article>
   );

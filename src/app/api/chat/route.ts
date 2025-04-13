@@ -1,117 +1,67 @@
-import { getVectorStore } from "@/lib/vectordb";
-import { UpstashRedisCache } from "@langchain/community/caches/upstash_redis";
-import { AIMessage, HumanMessage } from "@langchain/core/messages";
-import {
-  ChatPromptTemplate,
-  MessagesPlaceholder,
-  PromptTemplate,
-} from "@langchain/core/prompts";
-import { ChatOpenAI } from "@langchain/openai";
-import { Redis } from "@upstash/redis";
-import { LangChainStream, Message, StreamingTextResponse } from "ai";
-import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
-import { createHistoryAwareRetriever } from "langchain/chains/history_aware_retriever";
-import { createRetrievalChain } from "langchain/chains/retrieval";
+import { NextResponse } from 'next/server';
+import { getPortfolioContent } from '@/lib/portfolio';
+
+const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    const messages = body.messages;
+    const { messages } = await req.json();
+    const portfolioContent = getPortfolioContent();
 
-    const latestMessage = messages[messages.length - 1].content;
+    // Debug logging
+    console.log('API Key exists:', !!process.env.OPENROUTER_API_KEY);
+    console.log('Site URL:', process.env.NEXT_PUBLIC_SITE_URL);
+    console.log('Portfolio content length:', portfolioContent.length);
 
-    const { stream, handlers } = LangChainStream();
+    if (!process.env.OPENROUTER_API_KEY) {
+      throw new Error('OpenRouter API key is not configured');
+    }
 
-    // store the same user questions
-    const cache = new UpstashRedisCache({
-      client: Redis.fromEnv(),
-    });
-
-    const chatModel = new ChatOpenAI({
-      model: "gpt-3.5-turbo-0125",
-      streaming: true,
-      callbacks: [handlers],
-      verbose: true, // logs to console
-      cache,
-      temperature: 0,
-    });
-
-    const rephraseModel = new ChatOpenAI({
-      model: "gpt-3.5-turbo-0125",
-      verbose: true,
-      cache,
-    });
-
-    const retriever = (await getVectorStore()).asRetriever();
-
-    // get a customised prompt based on chat history
-    const chatHistory = messages
-      .slice(0, -1) // ignore latest message
-      .map((msg: Message) =>
-        msg.role === "user"
-          ? new HumanMessage(msg.content)
-          : new AIMessage(msg.content),
-      );
-
-    const rephrasePrompt = ChatPromptTemplate.fromMessages([
-      new MessagesPlaceholder("chat_history"),
-      ["user", "{input}"],
-      [
-        "user",
-        "Given the above conversation history, generate a search query to look up information relevant to the current question. " +
-          "Do not leave out any relevant keywords. " +
-          "Only return the query and no other text. ",
+    const requestBody = {
+      model: "deepseek/deepseek-v3-base:free",
+      messages: [
+        {
+          role: "system",
+          content: `You are a helpful assistant that knows about my portfolio. Use the following context to answer questions. If the answer is not in the context, say so. Context: ${portfolioContent}`
+        },
+        ...messages
       ],
-    ]);
+      temperature: 0.7,
+      max_tokens: 1000,
+    };
 
-    const historyAwareRetrievalChain = await createHistoryAwareRetriever({
-      llm: rephraseModel,
-      retriever,
-      rephrasePrompt,
+    console.log('Request body:', JSON.stringify(requestBody, null, 2));
+
+    const response = await fetch(OPENROUTER_API_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        'HTTP-Referer': process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+        'X-Title': 'Vaay Portfolio',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestBody),
     });
 
-    // final prompt
-    const prompt = ChatPromptTemplate.fromMessages([
-      [
-        "system",
-        "You are Vaay Support, a friendly chatbot for Vaay's personal developer portfolio website. " +
-          "You are trying to convince potential employers to hire Vaay as a software developer. " +
-          "Be concise and only answer the user's questions based on the provided context below. " +
-          "Provide links to pages that contains relevant information about the topic from the given context. " +
-          "Format your messages in markdown.\n\n" +
-          "Context:\n{context}",
-      ],
-      new MessagesPlaceholder("chat_history"),
-      ["user", "{input}"],
-    ]);
+    console.log('Response status:', response.status);
+    console.log('Response status text:', response.statusText);
 
-    const combineDocsChain = await createStuffDocumentsChain({
-      llm: chatModel,
-      prompt,
-      documentPrompt: PromptTemplate.fromTemplate(
-        "Page content:\n{page_content}",
-      ),
-      documentSeparator: "\n------\n",
-    });
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('OpenRouter API Error:', errorData);
+      throw new Error(`OpenRouter API Error: ${response.status} ${response.statusText} - ${JSON.stringify(errorData)}`);
+    }
 
-    // 1. retrievalChain converts the {input} into a vector
-    // 2. do a similarity search in the vector store and finds relevant documents
-    // 3. pairs the documents to createStuffDocumentsChain and put into {context}
-    // 4. send the updated prompt to chatgpt for a customised response
-
-    const retrievalChain = await createRetrievalChain({
-      combineDocsChain,
-      retriever: historyAwareRetrievalChain, // get the relevant documents based on chat history
-    });
-
-    retrievalChain.invoke({
-      input: latestMessage,
-      chat_history: chatHistory,
-    });
-
-    return new StreamingTextResponse(stream);
+    const data = await response.json();
+    return NextResponse.json({ response: data.choices[0].message.content });
   } catch (error) {
-    console.error(error);
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+    console.error('Chat API Error:', error);
+    return NextResponse.json(
+      { 
+        error: error instanceof Error ? error.message : 'Failed to process chat request. Please try again later.',
+        details: error instanceof Error ? error.stack : undefined
+      },
+      { status: 500 }
+    );
   }
-}
+} 

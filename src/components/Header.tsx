@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ChatToggle from "./ChatToggle";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
@@ -33,7 +32,6 @@ export default function Header() {
           ))}
         </ul>
         <div className="flex gap-0 sm:gap-4">
-          <ChatToggle />
           <ThemeToggle />
         </div>
       </nav>
