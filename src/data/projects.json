@@ -1,9 +1,10 @@
 {
   "projects": [
     {
-      "name": "Tradingview Telegram Alerts",
+      "name": "Vulos",
       "description": "Real-time trading alerts with chart snapshots sent to Telegram, designed to keep traders informed and responsive to market changes",
-      "image": "/tv-tele-alerts.png",
+      "href": "https://vulos-ecommerce.vercel.app/",
+      "image": "/vulos.png",
       "tags": [
         "Python",
         "FastAPI",
@@ -14,51 +15,45 @@
       ],
       "links": [
         {
-          "name": "Source",
-          "href": "https://github.com/",
-          "icon": "github"
+          "name": "Website",
+          "href": "https://vulos-ecommerce.vercel.app/",
+          "icon": "globe"
         }
       ]
     },
     {
-      "name": "NFTVue",
+      "name": "Media Rater",
       "description": "Non-Fungible Tokens (NFTs) Gallery Viewer website that allows users to connect their crypto wallets to view and verify their tokens",
-      "href": "https://test.vercel.app",
-      "image": "/nftvue.png",
+      "href": "https://media-rater-project.vercel.app/",
+      "image": "/mediarater.png",
       "tags": [
-        "NextJS",
-        "TailwindCSS",
-        "MetaMask",
-        "WalletConnect",
-        "Web3",
-        "NFTScan",
-        "HashKey DID"
+        "Django",
+        "SQLite",
+        "Python",
+        "HTML",
+        "CSS",
+        "Bootstrap"
       ],
       "links": [
         {
           "name": "Website",
-          "href": "https://test.vercel.app",
+          "href": "https://media-rater-project.vercel.app/",
           "icon": "globe"
         }
       ]
     },
 
     {
-      "name": "Rapid Ride Fight (Final Year)",
+      "name": "Sensomatic Solutions",
       "description": "3D capture-the-flag, multiplayer boat fighting, with smart AI and water graphics",
-      "href": "https://games.digipen.edu/games/rapid-ride-fight",
-      "image": "/rrf.png",
+      "href": "https://sensomatic-solutions.vercel.app/",
+      "image": "/sensomatic.png",
       "tags": ["C/C++", "OpenGL", "Custom Game Engine", "3D"],
       "links": [
         {
-          "name": "Gameplay",
-          "href": "https://www.youtube.com/watch?v=bge3fiypg5U",
-          "icon": "youtube"
-        },
-        {
-          "name": "Trailer",
-          "href": "https://www.youtube.com/watch?v=PNAO-aI1Daw",
-          "icon": "youtube"
+          "name": "Website",
+          "href": "https://sensomatic-solutions.vercel.app/",
+          "icon": "globe"
         }
       ]
     },
