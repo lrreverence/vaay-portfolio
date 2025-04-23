@@ -2,7 +2,7 @@
   "projects": [
     {
       "name": "Vulos",
-      "description": "Real-time trading alerts with chart snapshots sent to Telegram, designed to keep traders informed and responsive to market changes",
+      "description": "An e-commerce platform specializing in clothing and fashion items, offering a seamless shopping experience with modern design and user-friendly interface",
       "href": "https://vulos-ecommerce.vercel.app/",
       "image": "/vulos.png",
       "tags": [
@@ -23,7 +23,7 @@
     },
     {
       "name": "Media Rater",
-      "description": "Non-Fungible Tokens (NFTs) Gallery Viewer website that allows users to connect their crypto wallets to view and verify their tokens",
+      "description": "A comprehensive platform for rating and reviewing various forms of media including novels, movies, manga, and anime, allowing users to share their opinions and discover new content",
       "href": "https://media-rater-project.vercel.app/",
       "image": "/mediarater.png",
       "tags": [
@@ -45,7 +45,7 @@
 
     {
       "name": "Sensomatic Solutions",
-      "description": "3D capture-the-flag, multiplayer boat fighting, with smart AI and water graphics",
+      "description": "A comprehensive platform offering sensor solutions and IoT technologies, providing innovative sensor-based products and services for various industrial and commercial applications",
       "href": "https://sensomatic-solutions.vercel.app/",
       "image": "/sensomatic.png",
       "tags": ["C/C++", "OpenGL", "Custom Game Engine", "3D"],
