@@ -42,7 +42,6 @@
         }
       ]
     },
-
     {
       "name": "Sensomatic Solutions",
       "description": "A comprehensive platform offering sensor solutions and IoT technologies, providing innovative sensor-based products and services for various industrial and commercial applications",
@@ -54,20 +53,6 @@
           "name": "Website",
           "href": "https://sensomatic-solutions.vercel.app/",
           "icon": "globe"
-        }
-      ]
-    },
-    {
-      "name": "Glowing Under (2nd Year)",
-      "description": "2D platformer with a focus on puzzle-solving, no-death exploration and storytelling",
-      "href": "https://games.digipen.edu/games/glowing-under",
-      "image": "/gu.png",
-      "tags": ["C/C++", "OpenGL", "Custom Game Engine", "2D"],
-      "links": [
-        {
-          "name": "Trailer",
-          "href": "https://www.youtube.com/watch?v=u6RYwBZlSfg",
-          "icon": "youtube"
         }
       ]
     }
