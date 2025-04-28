@@ -1,17 +1,14 @@
 import { NextResponse } from 'next/server';
-import { getPortfolioContent } from '@/lib/portfolio';
 
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
 export async function POST(req: Request) {
   try {
     const { messages } = await req.json();
-    const portfolioContent = getPortfolioContent();
 
     // Debug logging
     console.log('API Key exists:', !!process.env.OPENROUTER_API_KEY);
     console.log('Site URL:', process.env.NEXT_PUBLIC_SITE_URL);
-    console.log('Portfolio content length:', portfolioContent.length);
 
     if (!process.env.OPENROUTER_API_KEY) {
       throw new Error('OpenRouter API key is not configured');
@@ -22,7 +19,7 @@ export async function POST(req: Request) {
       messages: [
         {
           role: "system",
-          content: `You are a helpful assistant that knows about my portfolio. Use the following context to answer questions. If the answer is not in the context, say so. Context: ${portfolioContent}`
+          content: "You are a helpful assistant that knows about my portfolio. You can answer questions about my projects, skills, and experience."
         },
         ...messages
       ],

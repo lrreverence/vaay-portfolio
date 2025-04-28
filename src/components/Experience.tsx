@@ -9,16 +9,16 @@ export default function Experience() {
   const education = educationSchema.parse(educationData).education;
 
   return (
-    <Tabs defaultValue="education">
+    <Tabs defaultValue="work">
       <TabsList className="mb-2 grid w-full grid-cols-2">
-      <TabsTrigger value="education">Education</TabsTrigger>
-        <TabsTrigger value="work">Work</TabsTrigger>
+      <TabsTrigger value="work">Experience</TabsTrigger>
+        <TabsTrigger value="education">Education</TabsTrigger>
       </TabsList>
-      <TabsContent value="education">
-        <Timeline experience={education}></Timeline>
-      </TabsContent>
       <TabsContent value="work">
         <Timeline experience={career}></Timeline>
+      </TabsContent>
+      <TabsContent value="education">
+        <Timeline experience={education}></Timeline>
       </TabsContent>
     </Tabs>
   );

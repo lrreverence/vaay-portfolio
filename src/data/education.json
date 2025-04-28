@@ -12,25 +12,16 @@
         "Consistent Dean's Honor List"
       ],
       "links": [
-        {
-          "name": "Final Year Project",
-          "href": "https://games.digipen.edu/games/rapid-ride-fight",
-          "icon": "globe"
-        },
-        {
-          "name": "2nd Year Project",
-          "href": "https://games.digipen.edu/games/glowing-under",
-          "icon": "globe"
-        }
+
       ]
     },
     {
       "name": "Philippine Science High School - MIMAROPA Region Campus",
       "href": "https://www.facebook.com/pisaymrc/",
-      "title": "Graduated With High Honors",
+      "title": "Graduated With Honors",
       "logo": "/pisay.png",
-      "start": "Apr 2014",
-      "end": "May 2017"
+      "start": "August 2016",
+      "end": "May 2022"
     }
   ]
 }

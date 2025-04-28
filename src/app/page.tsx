@@ -31,13 +31,13 @@ export default async function Home() {
           priority
         />
         <div className="flex flex-col">
-          <h1 className="title text-5xl">hi vaay here 👋</h1>
+          <h1 className="title text-5xl">hi va-ay here 👋</h1>
           <p className="mt-4 font-light">
             {/* Update my age */}
             21-year-old BSCS student from the Philippines 🇵🇭
           </p>
           <p className="mt-2 font-light">
-            Passionate about agriculture tech, full-stack development, and building smart systems.
+            Passionate about agriculture tech, software development, AI, machine learning, data engineering, and building smart systems.
             I fuel my coding sessions with determination (and probably instant coffee). 🚀
           </p>
           <div className="mt-4 flex items-end gap-1">

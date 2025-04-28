@@ -6,12 +6,10 @@
       "href": "https://vulos-ecommerce.vercel.app/",
       "image": "/vulos.png",
       "tags": [
-        "Python",
-        "FastAPI",
-        "Docker",
-        "Fly.io",
-        "Selenium",
-        "Telegram Bot API"
+        "TypeScript",
+        "Next.js",
+        "CSS",
+        "Sanity"
       ],
       "links": [
         {
@@ -47,12 +45,102 @@
       "description": "A comprehensive platform offering sensor solutions and IoT technologies, providing innovative sensor-based products and services for various industrial and commercial applications",
       "href": "https://sensomatic-solutions.vercel.app/",
       "image": "/sensomatic.png",
-      "tags": ["C/C++", "OpenGL", "Custom Game Engine", "3D"],
+      "tags": [
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ],
       "links": [
         {
           "name": "Website",
           "href": "https://sensomatic-solutions.vercel.app/",
           "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "DigiArt",
+      "description": "A digital art marketplace platform where users can discover and purchase unique digital wallpaper, featuring a curated collection of digital art pieces from various artists",
+      "href": "https://digi-art-beta.vercel.app/",
+      "image": "/digiart.png",
+      "tags": [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Vercel"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://digi-art-beta.vercel.app/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "Sokobai",
+      "description": "A classic Sokoban puzzle game implementation using C/C++ and SDL2 for graphics, featuring level loading, player movement, and box pushing mechanics",
+      "href": "https://github.com/lrreverence/Sokoban",
+      "image": "/sokobai.png",
+      "tags": [
+        "C/C++",
+        "SDL2",
+        "Game Development",
+        "Graphics Programming"
+      ],
+      "links": [
+        {
+          "name": "GitHub",
+          "href": "https://github.com/lrreverence/Sokoban",
+          "icon": "github"
+        },
+        {
+          "name": "Design",
+          "href": "https://www.canva.com/design/DAGHYtWPlNE/-GNNo_UVDvLWeF8bqReNug/edit?utm_content=DAGHYtWPlNE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+          "icon": "link"
+        }
+      ]
+    },
+    {
+      "name": "Waste Link",
+      "description": "A startup company website advocating for Black Soldier Fly (BSF) farming in Cebu, promoting sustainable waste management and organic farming practices through innovative insect-based solutions",
+      "href": "https://waste-link.vercel.app/",
+      "image": "/wastelink.png",
+      "tags": [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Vercel"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://waste-link.vercel.app/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "SmartAqua",
+      "description": "A smart aquarium app featuring mobile development with React Native, hardware integration with Arduino, and Firebase for authentication and database. The app supports real-time monitoring and control of aquarium conditions.",
+      "href": "https://github.com/lrreverence/SmartAquaApp",
+      "image": "/smartaqua.jpeg",
+      "tags": [
+        "TypeScript",
+        "Kotlin",
+        "Objective-C++",
+        "Ruby",
+        "JavaScript",
+        "Objective-C",
+        "React Native",
+        "Arduino",
+        "Firebase"
+      ],
+      "links": [
+        {
+          "name": "GitHub",
+          "href": "https://github.com/lrreverence/SmartAquaApp",
+          "icon": "github"
         }
       ]
     }

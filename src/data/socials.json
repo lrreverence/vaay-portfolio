@@ -14,6 +14,21 @@
       "name": "Email",
       "href": "mailto:caesarisidrovaay@gmail.com",
       "icon": "mail"
+    },
+    {
+      "name": "Facebook",
+      "href": "https://www.facebook.com/caesarisidro.vaay/",
+      "icon": "facebook"
+    },
+    {
+      "name": "Instagram",
+      "href": "https://www.instagram.com/va.aya.av/?theme=dark",
+      "icon": "instagram"
+    },
+    {
+      "name": "Twitter",
+      "href": "https://x.com/kandilasacake",
+      "icon": "twitter"
     }
   ]
 }
