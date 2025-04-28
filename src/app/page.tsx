@@ -41,7 +41,7 @@ export default async function Home() {
             I fuel my coding sessions with determination (and probably instant coffee). 🚀
           </p>
           <div className="mt-4 flex items-end gap-1">
-            <p className="font-semibold">Let's build something amazing together!</p>
+            <p className="font-semibold">Let&apos;s build something amazing together!</p>
             <ArrowDownRight className="size-5 animate-bounce" />
           </div>
           <section className="mt-8 flex items-center gap-8">
