@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 interface TechItem {
   name: string;
   icon: string;
+  lightIcon?: string;
 }
 
 const techStack: TechItem[] = [
@@ -13,6 +17,7 @@ const techStack: TechItem[] = [
   {
     name: "Next.js",
     icon: "/tech/nextjs.svg",
+    lightIcon: "/tech/nextjslight.svg",
   },
   {
     name: "TypeScript",
@@ -47,12 +52,12 @@ const techStack: TechItem[] = [
     icon: "/tech/java.svg",
   },
   {
-    name: "C",
-    icon: "/tech/c.svg",
+    name: "Firebase",
+    icon: "/tech/firebase.svg",
   },
   {
-    name: "C++",
-    icon: "/tech/cpp.svg",
+    name: "C/C++",
+    icon: "/tech/cpp1.svg",
   },
   {
     name: "SQL",
@@ -60,7 +65,7 @@ const techStack: TechItem[] = [
   },
   {
     name: "HTML/CSS",
-    icon: "/tech/html-css.svg",
+    icon: "/tech/htmlcss.svg",
   },
   {
     name: "Flask",
@@ -81,6 +86,8 @@ const techStack: TechItem[] = [
 ];
 
 export default function TechStack() {
+  const { resolvedTheme } = useTheme();
+
   return (
     <section className="flex flex-col gap-8">
       <h2 className="title text-2xl sm:text-3xl">tech stack</h2>
@@ -91,7 +98,7 @@ export default function TechStack() {
             className="flex flex-col items-center gap-2 rounded-lg border p-4 transition-colors hover:bg-muted"
           >
             <Image
-              src={tech.icon}
+              src={tech.lightIcon && resolvedTheme === "light" ? tech.lightIcon : tech.icon}
               alt={tech.name}
               width={40}
               height={40}
