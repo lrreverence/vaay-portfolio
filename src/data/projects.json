@@ -3,7 +3,7 @@
     {
       "name": "Job Scraper & CRM Integration",
       "description": "An automated job scraping system that collects job listings from various sources and seamlessly integrates them into Airtable CRM using n8n for workflow automation and data processing",
-      "href": "https://cnvaay.app.n8n.cloud/workflow/7sxzGa19qmymCiNw",
+      "href": "https://cnvaay.app.n8n.cloud/workflow/dV1slr294QgD3PhZ",
       "image": "/scraper.png",
       "tags": [
         "JavaScript",
@@ -16,7 +16,7 @@
       "links": [
         {
           "name": "Link",
-          "href": "https://cnvaay.app.n8n.cloud/workflow/7sxzGa19qmymCiNw",
+          "href": "https://cnvaay.app.n8n.cloud/workflow/dV1slr294QgD3PhZ",
           "icon": "globe"
         }
       ]
