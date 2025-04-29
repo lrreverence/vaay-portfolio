@@ -1,6 +1,27 @@
 {
   "projects": [
     {
+      "name": "Job Scraper & CRM Integration",
+      "description": "An automated job scraping system that collects job listings from various sources and seamlessly integrates them into Airtable CRM using n8n for workflow automation and data processing",
+      "href": "https://cnvaay.app.n8n.cloud/workflow/7sxzGa19qmymCiNw",
+      "image": "/scraper.png",
+      "tags": [
+        "JavaScript",
+        "n8n",
+        "Airtable",
+        "Web Scraping",
+        "Automation",
+        "API Integration"
+      ],
+      "links": [
+        {
+          "name": "Link",
+          "href": "https://cnvaay.app.n8n.cloud/workflow/7sxzGa19qmymCiNw",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
       "name": "Vulos",
       "description": "An e-commerce platform specializing in clothing and fashion items, offering a seamless shopping experience with modern design and user-friendly interface",
       "href": "https://vulos-ecommerce.vercel.app/",
