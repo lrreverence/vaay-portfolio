@@ -19,8 +19,8 @@ export async function sendEmail(data: ContactFormInputs) {
   try {
     const { name, email, message } = result.data;
     const { data, error } = await resend.emails.send({
-      from: `googlemail.com <contact@googlemail.com>`,
-      to: "caesarisidrovaay@gmail.com",
+      from: 'onboarding@resend.dev',
+      to: 'caesarisidrovaay@gmail.com',
       replyTo: [email],
       cc: [email],
       subject: `New message from ${name}!`,

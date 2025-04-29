@@ -15,7 +15,7 @@ import ChatInterface from "@/components/ChatInterface";
 
 const blogDirectory = path.join(process.cwd(), "content");
 const posts = getPosts(blogDirectory);
-const LIMIT = 3;
+const LIMIT = 4;
 
 export default async function Home() {
   const postsData = await posts;

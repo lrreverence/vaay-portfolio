@@ -1,63 +1,108 @@
 ---
-title: "Making TradingView Telegram Alerts"
-summary: "Real-time trading alerts with chart snapshots sent to Telegram, designed for real traders."
-image: "/tv-tele-alerts.png"
-publishedAt: "2024-09-11"
+title: "Building My Smart Aquarium"
+summary: "An IoT-powered aquarium automation system that monitors and controls water parameters in real-time."
+image: "/smartaqua.png"
+publishedAt: "2025-03-19"
 ---
 
-TradingView Telegram Alerts is a real-time notification system designed to help traders stay on top of market movements without needing to constantly monitor charts. This tool automatically sends customized trading alerts directly to your Telegram, ensuring you never miss an opportunity. Whether it's price spikes, volume changes, or any other condition set within TradingView, this tool delivers the information you need, when you need it.
+# Hardware Components
 
-## The Problem And Solution
+Building a smart aquarium controller requires careful selection of hardware components to ensure reliable operation and accurate monitoring. Here's the detailed hardware stack I used:
 
-My client often miss key opportunities because they can't monitor the markets 24/7. _(But they are always online on Telegram.. 🤔)_
+## Core Components
 
-Constantly checking charts isn't practical, and TradingView's built-in notification system, while useful, isn't always enough to ensure traders stay ahead of the market in real time.
+### Arduino Mega
+Arduino Mega is the main controller that manages the entire system. It processes data from the pH sensor and ultrasonic sensor, makes decisions based on the readings, and controls the two water pumps through the relay module. With its large number of pins and memory, it's perfect for handling multiple sensors and modules at once.
 
-I built **TradingView Telegram Alerts** to solve this problem. This tool allows traders to set up personalized trading alerts based on their criteria in TradingView, which are then sent instantly to their Telegram account. No need to keep a constant eye on the charts—**the system sends the chart to you.**
+The Arduino runs custom C++ firmware that handles:
+- Real-time sensor reading and data processing
+- Actuator control based on sensor readings
+- Communication with the ESP8266 module
+- System state management and error handling
 
-### Key Features
+### PH-4502C pH Sensor
+A sensor that monitors the pH level of your aquarium water in real time. It detects if the water is too acidic or too alkaline, which could harm your fish. The sensor sends this data to the Arduino, which then decides whether to activate the water change process. Regular cleaning and calibration help maintain its accuracy.
 
-- **Real-Time Notifications**: Alerts are sent directly to your Telegram chat based on the custom conditions you set within TradingView.
-- **Chart Snapshots**: Along with alerts, **Selenium** is used to capture real-time snapshots of your charts, providing an immediate visual context to the notification.
-- **Continuous Monitoring**: The system runs 24/7, ensuring you're always informed of crucial market changes.
+### LCD with I2C 1602
+This is a small digital display that shows important information such as the current pH level and system status. The I2C interface simplifies wiring, using only two communication lines. This makes it easy to keep track of what's happening in your aquarium without needing to check the mobile app.
 
-## Tech Stack
+### JSN-SR04M-2 Ultrasonic Sensor
+A waterproof sensor is used to measure the water level in your aquarium. It sends out ultrasonic pulses and measures the time it takes for them to bounce back from the water surface. This helps ensure the system doesn't overflow the tank.
 
-This project leverages a variety of modern technologies to ensure speed, scalability, and reliability:
+### ESP8266 Wi-Fi Module
+The ESP8266 allows your system to connect to Wi-Fi and communicate with your mobile app. It sends real-time pH data and water level data to Firebase and then it's being sent to your mobile app, allowing you to monitor the aquarium remotely.
 
-- **FastAPI**: Powers the webhook listener, handling the real-time alert system.
-- **Fly.io**: Deploys the application, ensuring global scalability and uptime.
-- **Telegram Bot API**: Sends notifications to your Telegram chat in real time.
-- **Selenium**: Captures snapshots of your TradingView charts, giving you visual insights along with each alert.
+### Water Pump (x2)
+There are two pumps in the system: one for draining dirty water and one for filling clean water into the aquarium. These pumps are controlled automatically by the Arduino via the relay module, based on the pH level and water level readings.
 
-## How It Works
+### Buck Converter
+This module adjusts and regulates voltage from the power supply to match the requirements of different components, such as stepping down 9V to 5V or 3.3V. It ensures each device gets safe and stable power, helping to prevent overheating or damage.
 
-1. **Set Alerts in TradingView**: Traders configure alerts within TradingView using custom conditions based on market data.
-2. **Webhook Listener**: The FastAPI application listens for incoming alerts from TradingView and processes them.
-3. **Telegram Notification**: Once an alert is triggered, it’s forwarded instantly to your Telegram chat, along with a real-time snapshot of the chart for visual context.
+### Relay Module
+The relay module acts like a smart switch that allows the Arduino to control high-power components, such as the water pumps. When the Arduino sends a signal, the relay either turns a pump on or off. Each relay channel is connected to one of the two pumps, enabling separate control for draining and refilling.
 
-## What Did I Learnt?
+### Power Supply
+This provides the necessary electricity to run all components in the system. It powers the Arduino, sensors, pumps, and the Wi-Fi module. A reliable power source is essential for keeping the system stable and operational 24/7.
 
-Building this tool presented several challenges, including ensuring real-time performance and managing multiple concurrent alerts. I optimized the webhook for high performance using **FastAPI's asynchronous capabilities** and leveraged **Selenium** to capture chart snapshots without disrupting the notification flow. These challenges taught me a lot about real-time data processing and integrating multiple APIs.
+# Software Architecture
 
-Imagine setting specific trading conditions on TradingView—like price crosses or volume spikes—and getting notified the moment they happen, even if you're away from your trading platform. This system listens to TradingView’s alerts and forwards them to Telegram, giving you real-time updates.
+The software architecture of the smart aquarium controller is designed for reliability and ease of maintenance. Here's how it all works together:
 
-This project has the potential to be a game-changer for active traders. By automating the process of receiving real-time alerts and integrating visual snapshots, it allows traders to make quicker, more informed decisions. Whether you're a casual trader or a professional, this tool can help streamline your trading process.
+## Core Features
 
-## Future Plans
+- Real-time monitoring of water parameters
+- Automated dosing of water treatments
+- Smart lighting control based on time and plant needs
+- Remote monitoring via mobile app
+- Automated water change system
+- Alert system for parameter deviations
 
-There are always ways to improve, and here are a few future plans:
+## Technical Implementation
 
-- Expand support for multiple Telegram groups or users.
-- Build a web interface to easily configure TradingView alerts and manage settings.
-- Improve alert history tracking with a more robust logging system.
+- **Mobile App**: React Native application for iOS and Android, providing a user-friendly interface for monitoring and control
+- **Backend**: Python-based control system running on Raspberry Pi
+- **Database**: SQLite for local data storage
+- **API**: RESTful API for remote access
+- **MQTT**: For real-time sensor data transmission
 
-## See It in Action
+## Automation Logic
 
-Check out the project on my [GitHub repo](https://github.com/dog/tradingview-telegram-alerts) for the source code and setup instructions.
+The system uses a rule-based engine to make decisions about:
+- When to dose water treatments
+- How to adjust lighting schedules
+- When to perform water changes
+- Alert thresholds for various parameters
+
+## Data Collection
+
+- Sensor readings are collected every 5 minutes
+- Data is stored locally and can be exported
+- Historical trends are visualized in the mobile app
+- Automated reports are generated daily
+
+## Security Features
+
+- Encrypted communication
+- User authentication
+- Secure API endpoints
+- Regular backup system
+
+# Future Improvements
+
+The system is constantly evolving, with several planned improvements:
+
+- Machine learning for predictive maintenance
+- Integration with smart home systems
+- Enhanced mobile app features
+- Additional sensor support
+- Improved automation capabilities
+
+# Conclusion
+
+Building this smart aquarium controller has been an exciting journey in IoT development. The combination of Arduino for hardware control and React Native for the mobile interface has created a robust system that makes aquarium maintenance much more manageable. The project demonstrates how modern technology can be applied to improve traditional hobbies and make them more accessible to busy enthusiasts.
 
 ---
 
-This project has been a rewarding challenge, and I’m excited to continue improving it. If you have any feedback or suggestions, feel free to reach out!
+Feel free to check out the project on my [GitHub repository](https://github.com/yourusername/smart-aquarium) for more details and setup instructions.
 
 – Va-ay

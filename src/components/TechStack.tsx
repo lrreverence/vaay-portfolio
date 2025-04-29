@@ -43,16 +43,40 @@ const techStack: TechItem[] = [
     icon: "/tech/postgresql.svg",
   },
   {
-    name: "Docker",
-    icon: "/tech/docker.svg",
+    name: "Java",
+    icon: "/tech/java.svg",
   },
   {
-    name: "Git",
-    icon: "/tech/git.svg",
+    name: "C",
+    icon: "/tech/c.svg",
   },
   {
-    name: "AWS",
-    icon: "/tech/aws.svg",
+    name: "C++",
+    icon: "/tech/cpp.svg",
+  },
+  {
+    name: "SQL",
+    icon: "/tech/sql.svg",
+  },
+  {
+    name: "HTML/CSS",
+    icon: "/tech/html-css.svg",
+  },
+  {
+    name: "Flask",
+    icon: "/tech/flask.svg",
+  },
+  {
+    name: "Vue.js",
+    icon: "/tech/vue.svg",
+  },
+  {
+    name: "Django",
+    icon: "/tech/django.svg",
+  },
+  {
+    name: "Angular",
+    icon: "/tech/angular.svg",
   },
 ];
 

@@ -124,7 +124,7 @@
       "name": "SmartAqua",
       "description": "A smart aquarium app featuring mobile development with React Native, hardware integration with Arduino, and Firebase for authentication and database. The app supports real-time monitoring and control of aquarium conditions.",
       "href": "https://github.com/lrreverence/SmartAquaApp",
-      "image": "/smartaqua.jpeg",
+      "image": "/smartaqua.png",
       "tags": [
         "TypeScript",
         "Kotlin",
