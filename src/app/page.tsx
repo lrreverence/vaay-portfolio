@@ -36,7 +36,7 @@ export default async function Home() {
             21-year-old BSCS student from the Philippines 🇵🇭
           </p>
           <p className="mt-2 text-sm sm:text-base font-light">
-            Passionate about agriculture tech, software development, AI, machine learning, data engineering, and building smart systems.
+            Passionate about automation, software development, AI, machine learning, data engineering, and building smart systems.
             I fuel my coding sessions with determination (and probably instant coffee). 🚀
           </p>
           <div className="mt-4 flex items-end gap-1">
@@ -60,8 +60,9 @@ export default async function Home() {
       <TechStack />
 
       <section className="flex flex-col gap-4 sm:gap-8">
-        <div className="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-0">
-          <h2 className="title text-2xl sm:text-3xl">featured projects</h2>
+        <h2 className="title text-2xl sm:text-3xl">featured projects</h2>
+        <Projects limit={LIMIT} />
+        <div className="flex justify-center">
           <LinkWithIcon
             href="/projects"
             position="right"
@@ -69,12 +70,12 @@ export default async function Home() {
             text="view more"
           />
         </div>
-        <Projects limit={LIMIT} />
       </section>
 
       <section className="flex flex-col gap-4 sm:gap-8">
-        <div className="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-0">
-          <h2 className="title text-2xl sm:text-3xl">recent posts</h2>
+        <h2 className="title text-2xl sm:text-3xl">recent posts</h2>
+        <Posts posts={postsData} />
+        <div className="flex justify-center">
           <LinkWithIcon
             href="/blog"
             position="right"
@@ -82,7 +83,6 @@ export default async function Home() {
             text="view more"
           />
         </div>
-        <Posts posts={postsData} />
       </section>
 
       <section className="flex flex-col gap-4 sm:gap-8">
