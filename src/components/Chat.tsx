@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Send, MessageCircle, ChevronDown } from 'lucide-react'
 
 interface Message {
@@ -18,6 +18,17 @@ export default function Chat() {
   const [input, setInput] = useState('')
   const [isOpen, setIsOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [showGuide, setShowGuide] = useState(true)
+
+  useEffect(() => {
+    if (showGuide) {
+      const timer = setTimeout(() => {
+        setShowGuide(false)
+      }, 7000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [showGuide])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -65,9 +76,9 @@ export default function Chat() {
       {!isOpen ? (
         <button
           onClick={() => setIsOpen(true)}
-          className="flex flex-col items-start gap-1 bg-background text-foreground px-4 py-3 rounded-xl hover:bg-muted transition-colors shadow-lg w-[280px] border "
+          className="flex flex-col items-start gap-1 bg-background text-foreground px-4 py-3 rounded-xl hover:bg-muted transition-colors shadow-lg w-[240px] border sm:block hidden"
         >
-          <span className="text-sm font-normal mb-1">Chat with</span>
+          <div className="flex items-center gap-2"> <span className="text-sm font-normal mb-1">Chat with</span></div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-green-500 rounded-full animate-blink"></div>
             <span className="text-sm font-medium">Va-ay Support</span>
@@ -77,7 +88,7 @@ export default function Chat() {
           </div>
         </button>
       ) : (
-        <div className="w-[280px] bg-background text-foreground rounded-xl shadow-2xl border border-border/60 overflow-hidden">
+        <div className="w-[240px] sm:w-[300px] bg-background text-foreground rounded-xl shadow-2xl border border-border/60 overflow-hidden">
           <button 
             onClick={() => setIsOpen(false)}
             className="w-full p-3 border-b border-border/60 flex flex-col items-start bg-background/80 backdrop-blur-sm hover:bg-muted transition-colors"
@@ -105,7 +116,7 @@ export default function Chat() {
                       : 'bg-primary text-primary-foreground [text-shadow:_0_1px_1px_rgb(0_0_0_/_20%)]'
                   }`}
                 >
-                  {message.content}
+                  {index === 0 ? <span className="text-sm">{message.content}</span> : message.content}
                 </div>
               </div>
             ))}
@@ -137,6 +148,35 @@ export default function Chat() {
               </button>
             </div>
           </form>
+        </div>
+      )}
+
+      {/* Mobile floating button */}
+      {!isOpen && (
+        <div className="sm:hidden fixed bottom-4 right-4 z-40">
+          <div className="w-2 h-2 bg-green-500 rounded-full animate-blink absolute top-4 left-3/4 -translate-x-1/2 z-50"></div>
+          {showGuide && (
+            <div className="absolute bottom-14 right-0 w-[200px] bg-muted text-foreground p-2 rounded-xl shadow-lg border border-border/60 mb-2">
+              <div className="flex justify-between items-start mb-0.5">
+                <span className="text-xs font-medium">Chat with AI Guide</span>
+                <button 
+                  onClick={() => setShowGuide(false)}
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L13 13M1 13L13 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                  </svg>
+                </button>
+              </div>
+              <p className="text-[10px] text-muted-foreground">Ask me anything about my portfolio</p>
+            </div>
+          )}
+          <button
+            onClick={() => setIsOpen(true)}
+            className="bg-muted text-foreground p-4 rounded-full shadow-lg hover:bg-muted/80 transition-colors relative border border-border/60"
+          >
+            <MessageCircle size={24} />
+          </button>
         </div>
       )}
     </div>

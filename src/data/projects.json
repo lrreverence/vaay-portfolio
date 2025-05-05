@@ -1,27 +1,6 @@
 {
   "projects": [
     {
-      "name": "Job Scraper & CRM Integration",
-      "description": "An automated job scraping system that collects job listings from various sources and seamlessly integrates them into Airtable CRM using n8n for workflow automation and data processing",
-      "href": "https://cnvaay.app.n8n.cloud/workflow/dV1slr294QgD3PhZ",
-      "image": "/scraper.png",
-      "tags": [
-        "JavaScript",
-        "n8n",
-        "Airtable",
-        "Web Scraping",
-        "Automation",
-        "API Integration"
-      ],
-      "links": [
-        {
-          "name": "Link",
-          "href": "https://cnvaay.app.n8n.cloud/workflow/dV1slr294QgD3PhZ",
-          "icon": "globe"
-        }
-      ]
-    },
-    {
       "name": "Vulos",
       "description": "An e-commerce platform specializing in clothing and fashion items, offering a seamless shopping experience with modern design and user-friendly interface",
       "href": "https://vulos-ecommerce.vercel.app/",
@@ -36,27 +15,6 @@
         {
           "name": "Website",
           "href": "https://vulos-ecommerce.vercel.app/",
-          "icon": "globe"
-        }
-      ]
-    },
-    {
-      "name": "Media Rater",
-      "description": "A comprehensive platform for rating and reviewing various forms of media including novels, movies, manga, and anime, allowing users to share their opinions and discover new content",
-      "href": "https://media-rater-project.vercel.app/",
-      "image": "/mediarater.png",
-      "tags": [
-        "Django",
-        "SQLite",
-        "Python",
-        "HTML",
-        "CSS",
-        "Bootstrap"
-      ],
-      "links": [
-        {
-          "name": "Website",
-          "href": "https://media-rater-project.vercel.app/",
           "icon": "globe"
         }
       ]
@@ -162,6 +120,48 @@
           "name": "GitHub",
           "href": "https://github.com/lrreverence/SmartAquaApp",
           "icon": "github"
+        }
+      ]
+    },
+    {
+      "name": "Job Scraper & CRM Integration",
+      "description": "An automated job scraping system that collects job listings from various sources and seamlessly integrates them into Airtable CRM using n8n for workflow automation and data processing",
+      "href": "https://cnvaay.app.n8n.cloud/workflow/dV1slr294QgD3PhZ",
+      "image": "/scraper.png",
+      "tags": [
+        "JavaScript",
+        "n8n",
+        "Airtable",
+        "Web Scraping",
+        "Automation",
+        "API Integration"
+      ],
+      "links": [
+        {
+          "name": "Link",
+          "href": "https://cnvaay.app.n8n.cloud/workflow/dV1slr294QgD3PhZ",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "Media Rater",
+      "description": "A comprehensive platform for rating and reviewing various forms of media including novels, movies, manga, and anime, allowing users to share their opinions and discover new content",
+      "href": "https://media-rater-project.vercel.app/",
+      "image": "/mediarater.png",
+      "tags": [
+        "Django",
+        "SQLite",
+        "Python",
+        "HTML",
+        "CSS",
+        "Bootstrap"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://media-rater-project.vercel.app/",
+          "icon": "globe"
         }
       ]
     }

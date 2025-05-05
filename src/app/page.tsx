@@ -20,10 +20,10 @@ const LIMIT = 4;
 export default async function Home() {
   const postsData = await posts;
   return (
-    <article className="mt-8 flex flex-col gap-16 pb-16">
+    <article className="mt-8 flex flex-col gap-8 sm:gap-16 pb-16">
       <section className="flex flex-col items-start gap-8 md:flex-row-reverse md:items-center md:justify-between">
         <Image
-          className="rounded-lg"
+          className="rounded-lg mx-auto md:mx-0"
           src="/vaaypp.png"
           alt="Photo of Vaay"
           width={175}
@@ -31,24 +31,23 @@ export default async function Home() {
           priority
         />
         <div className="flex flex-col">
-          <h1 className="title text-5xl">hi va-ay here 👋</h1>
-          <p className="mt-4 font-light">
-            {/* Update my age */}
+          <h1 className="title text-4xl sm:text-5xl">hi va-ay here 👋</h1>
+          <p className="mt-4 text-sm sm:text-base font-light">
             21-year-old BSCS student from the Philippines 🇵🇭
           </p>
-          <p className="mt-2 font-light">
+          <p className="mt-2 text-sm sm:text-base font-light">
             Passionate about agriculture tech, software development, AI, machine learning, data engineering, and building smart systems.
             I fuel my coding sessions with determination (and probably instant coffee). 🚀
           </p>
           <div className="mt-4 flex items-end gap-1">
-            <p className="font-semibold">Let&apos;s build something amazing together!</p>
-            <ArrowDownRight className="size-5 animate-bounce" />
+            <p className="text-sm sm:text-base font-semibold">Let&apos;s build something amazing together!</p>
+            <ArrowDownRight className="size-4 sm:size-5 animate-bounce" />
           </div>
-          <section className="mt-8 flex items-center gap-8">
-            <Link href="/resume.pdf" target="_blank">
-              <Button variant="outline">
+          <section className="mt-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
+            <Link href="/resume.pdf" target="_blank" className="w-full sm:w-auto">
+              <Button variant="outline" className="w-full sm:w-auto">
                 <span className="font-semibold">Resume</span>
-                <FileDown className="ml-2 size-5" />
+                <FileDown className="ml-2 size-4 sm:size-5" />
               </Button>
             </Link>
             <Socials />
@@ -60,34 +59,34 @@ export default async function Home() {
 
       <TechStack />
 
-      <section className="flex flex-col gap-8">
-        <div className="flex justify-between">
+      <section className="flex flex-col gap-4 sm:gap-8">
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-0">
           <h2 className="title text-2xl sm:text-3xl">featured projects</h2>
           <LinkWithIcon
             href="/projects"
             position="right"
-            icon={<ArrowRightIcon className="size-5" />}
+            icon={<ArrowRightIcon className="size-4 sm:size-5" />}
             text="view more"
           />
         </div>
         <Projects limit={LIMIT} />
       </section>
 
-      <section className="flex flex-col gap-8">
-        <div className="flex justify-between">
-          <h2 className="title text-3xl">recent posts</h2>
+      <section className="flex flex-col gap-4 sm:gap-8">
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-0">
+          <h2 className="title text-2xl sm:text-3xl">recent posts</h2>
           <LinkWithIcon
             href="/blog"
             position="right"
-            icon={<ArrowRightIcon className="size-5" />}
+            icon={<ArrowRightIcon className="size-4 sm:size-5" />}
             text="view more"
           />
         </div>
         <Posts posts={postsData} />
       </section>
 
-      <section className="flex flex-col gap-8">
-        <h2 className="title text-3xl">chat with my portfolio</h2>
+      <section className="flex flex-col gap-4 sm:gap-8">
+        <h2 className="title text-2xl sm:text-3xl">chat with my portfolio</h2>
         <ChatInterface />
       </section>
     </article>
