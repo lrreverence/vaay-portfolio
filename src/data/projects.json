@@ -1,6 +1,66 @@
 {
   "projects": [
     {
+      "name": "UP Cebu Fighting Maroons",
+      "description": "A comprehensive website for tracking and showcasing UP Cebu athletes, featuring athlete profiles, team information, and sports updates for the Fighting Maroons",
+      "href": "https://up-cebu-fighting-maroons-website.vercel.app/",
+      "image": "/maroons.png",
+      "tags": [
+        "Supabase",
+        "React",
+        "TypeScript",
+        "Tailwind CSS"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://up-cebu-fighting-maroons-website.vercel.app/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "Luca NextGen Financial",
+      "description": "A modern financial services website for a forward-thinking CFO company that combines AI-driven tools with expert financial guidance, featuring service tiers, industry solutions, and consultation booking",
+      "href": "https://www.lucanextgen.ai/",
+      "image": "/luca.png",
+      "tags": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Client Project"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://www.lucanextgen.ai/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "Regex to NFA Visualizer",
+      "description": "A CMSC 141 project that converts regular expressions to Non-Deterministic Finite Automata (NFA) with interactive visualization, helping students understand automata theory concepts",
+      "href": "https://regex2nfa.vercel.app/",
+      "image": "/regex.png",
+      "tags": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vis.js",
+        "Driver.js"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://regex2nfa.vercel.app/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
       "name": "Vulos",
       "description": "An e-commerce platform specializing in clothing and fashion items, offering a seamless shopping experience with modern design and user-friendly interface",
       "href": "https://vulos-ecommerce.vercel.app/",
@@ -140,27 +200,6 @@
         {
           "name": "Link",
           "href": "https://cnvaay.app.n8n.cloud/workflow/dV1slr294QgD3PhZ",
-          "icon": "globe"
-        }
-      ]
-    },
-    {
-      "name": "Media Rater",
-      "description": "A comprehensive platform for rating and reviewing various forms of media including novels, movies, manga, and anime, allowing users to share their opinions and discover new content",
-      "href": "https://media-rater-project.vercel.app/",
-      "image": "/mediarater.png",
-      "tags": [
-        "Django",
-        "SQLite",
-        "Python",
-        "HTML",
-        "CSS",
-        "Bootstrap"
-      ],
-      "links": [
-        {
-          "name": "Website",
-          "href": "https://media-rater-project.vercel.app/",
           "icon": "globe"
         }
       ]

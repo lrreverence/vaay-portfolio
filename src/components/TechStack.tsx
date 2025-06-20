@@ -68,10 +68,6 @@ const techStack: TechItem[] = [
     icon: "/tech/htmlcss.svg",
   },
   {
-    name: "Flask",
-    icon: "/tech/flask.svg",
-  },
-  {
     name: "Vue.js",
     icon: "/tech/vue.svg",
   },
