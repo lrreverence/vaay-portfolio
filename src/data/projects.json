@@ -1,20 +1,22 @@
 {
   "projects": [
     {
-      "name": "UP Cebu Fighting Maroons",
-      "description": "A comprehensive website for tracking and showcasing UP Cebu athletes, featuring athlete profiles, team information, and sports updates for the Fighting Maroons",
-      "href": "https://up-cebu-fighting-maroons-website.vercel.app/",
-      "image": "/maroons.png",
+      "name": "FindingBH",
+      "description": "Connect renters with quality boarding houses and apartments. Safe, verified, and hassle-free rentals for students and professionals.",
+      "href": "https://findmy-pad-ph.vercel.app/",
+      "image": "/findingbh.png",
       "tags": [
-        "Supabase",
+        "Next.js",
         "React",
         "TypeScript",
-        "Tailwind CSS"
+        "Tailwind CSS",
+        "Supabase",
+        "Vercel"
       ],
       "links": [
         {
           "name": "Website",
-          "href": "https://up-cebu-fighting-maroons-website.vercel.app/",
+          "href": "https://findmy-pad-ph.vercel.app/",
           "icon": "globe"
         }
       ]
@@ -93,6 +95,25 @@
         {
           "name": "Website",
           "href": "https://sensomatic-solutions.vercel.app/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "UP Cebu Fighting Maroons",
+      "description": "A comprehensive website for tracking and showcasing UP Cebu athletes, featuring athlete profiles, team information, and sports updates for the Fighting Maroons",
+      "href": "https://up-cebu-fighting-maroons-website.vercel.app/",
+      "image": "/maroons.png",
+      "tags": [
+        "Supabase",
+        "React",
+        "TypeScript",
+        "Tailwind CSS"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://up-cebu-fighting-maroons-website.vercel.app/",
           "icon": "globe"
         }
       ]

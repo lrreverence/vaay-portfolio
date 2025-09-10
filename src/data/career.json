@@ -1,6 +1,34 @@
 {
   "career": [
     {
+      "name": "Upwork",
+      "href": "https://www.upwork.com",
+      "title": "Freelance Software Developer",
+      "logo": "/upwork.png",
+      "start": "January 2023",
+      "end": "Present",
+      "location": "Remote",
+      "description": [
+        "Developed and deployed full-stack software and website solutions tailored to client requirements, handling both frontend and backend development",
+        "Implemented automation workflows using n8n and Zapier, streamlining business processes and reducing manual tasks",
+        "Delivered GoHighLevel (GHL) projects, customizing CRM, marketing, and automation tools to improve client operations"
+      ]
+    },
+    {
+      "name": "Alliance Software Inc.",
+      "href": "https://www.alliance.com.ph",
+      "title": "Software Engineer Intern",
+      "logo": "/alliance.jpeg",
+      "start": "June 2025",
+      "end": "September 2025",
+      "location": "Cebu City, Cebu",
+      "description": [
+        "Fixed 20+ software issues, including bugs and coding errors, improving overall system stability and performance",
+        "Assisted in maintaining and enhancing legacy applications using PHP and ActionScript",
+        "Contributed to the development and support of a Point-of-Sale (POS) system, ensuring accurate and reliable transaction processing"
+      ]
+    },
+    {
       "name": "Bayoa Analytics",
       "href": "https://www.bayoa-analytics.com",
       "title": "Full Stack Developer Intern", 
