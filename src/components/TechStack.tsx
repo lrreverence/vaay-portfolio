@@ -79,6 +79,22 @@ const techStack: TechItem[] = [
     name: "Angular",
     icon: "/tech/angular.svg",
   },
+  {
+    name: "WordPress",
+    icon: "/tech/wordpress.svg",
+  },
+  {
+    name: "Zapier",
+    icon: "/tech/zapier.svg",
+  },
+  {
+    name: "n8n",
+    icon: "/tech/n8n.svg",
+  },
+  {
+    name: "GoHighLevel",
+    icon: "/tech/ghl.jpeg",
+  },
 ];
 
 export default function TechStack() {

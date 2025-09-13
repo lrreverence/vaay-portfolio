@@ -42,8 +42,8 @@
       ]
     },
     {
-      "name": "Regex to NFA Visualizer",
-      "description": "A CMSC 141 project that converts regular expressions to Non-Deterministic Finite Automata (NFA) with interactive visualization, helping students understand automata theory concepts",
+      "name": "Regexify",
+      "description": "A program that converts regular expressions to Non-Deterministic Finite Automata (NFA) with interactive visualization, helping students understand automata theory concepts",
       "href": "https://regex2nfa.vercel.app/",
       "image": "/regex.png",
       "tags": [
