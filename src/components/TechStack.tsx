@@ -93,7 +93,7 @@ const techStack: TechItem[] = [
   },
   {
     name: "GoHighLevel",
-    icon: "/tech/ghl.jpeg",
+    icon: "/tech/GHL.jpeg",
   },
 ];
 
@@ -115,6 +115,7 @@ export default function TechStack() {
               width={40}
               height={40}
               className="size-10"
+              unoptimized={tech.icon.includes('.jpeg') || tech.icon.includes('.jpg')}
             />
             <span className="text-sm font-medium">{tech.name}</span>
           </div>
