@@ -80,9 +80,11 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   }
   .title {
     @apply font-serif text-5xl tracking-wide decoration-border/75 decoration-2;
+    font-family: var(--font-serif), 'Times New Roman', 'Times', 'serif';
   }
   .link {
     @apply text-muted-foreground transition-colors hover:text-foreground;

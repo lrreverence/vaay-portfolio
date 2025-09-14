@@ -6,11 +6,18 @@ import type { Metadata } from "next";
 import { Calistoga, Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-sans",
+  display: 'swap',
+  preload: true
+});
 const calistoga = Calistoga({
   subsets: ["latin"],
   variable: "--font-serif",
   weight: ["400"],
+  display: 'swap',
+  preload: true
 });
 
 export const metadata: Metadata = {
