@@ -33,7 +33,7 @@ export default async function Home() {
         <div className="flex flex-col">
           <h1 className="title text-4xl sm:text-5xl">hi va-ay here 👋</h1>
           <p className="mt-4 text-sm sm:text-base font-light">
-            21-year-old BSCS student from the Philippines 🇵🇭
+            Freelance developer from the Philippines 🇵🇭
           </p>
           <p className="mt-2 text-sm sm:text-base font-light">
             Passionate about automation, software development, AI, machine learning, data engineering, and building smart systems.

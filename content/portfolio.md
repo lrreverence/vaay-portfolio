@@ -1,7 +1,7 @@
 # Vaay's Portfolio
 
 ## About Me
-- 21-year-old BSCS student from the Philippines 🇵🇭
+- Freelance developer from the Philippines 🇵🇭
 - Passionate about agriculture tech, full-stack development, and building smart systems
 - I fuel my coding sessions with determination (and probably instant coffee) 🚀
 

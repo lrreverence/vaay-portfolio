@@ -42,6 +42,26 @@
       ]
     },
     {
+      "name": "Neno's House Treatments",
+      "description": "A professional website for Neno's House Treatments, a specialized cleaning and treatment service company offering comprehensive solutions for residential and commercial properties",
+      "href": "https://www.nenoshousetreatments.com/",
+      "image": "/neno-treatments.png",
+      "tags": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Client Project"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://www.nenoshousetreatments.com/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
       "name": "Regexify",
       "description": "A program that converts regular expressions to Non-Deterministic Finite Automata (NFA) with interactive visualization, helping students understand automata theory concepts",
       "href": "https://regex2nfa.vercel.app/",
