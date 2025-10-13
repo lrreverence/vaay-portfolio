@@ -10,14 +10,16 @@ const inter = Inter({
   subsets: ["latin"], 
   variable: "--font-sans",
   display: 'swap',
-  preload: true
+  preload: true,
+  fallback: ['system-ui', 'arial']
 });
 const calistoga = Calistoga({
   subsets: ["latin"],
   variable: "--font-serif",
   weight: ["400"],
   display: 'swap',
-  preload: true
+  preload: true,
+  fallback: ['Georgia', 'serif']
 });
 
 export const metadata: Metadata = {
@@ -32,6 +34,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         className={cn(
           "mx-auto flex min-h-screen max-w-3xl flex-col px-8 font-sans antialiased",
