@@ -14,7 +14,8 @@ export async function POST(req: Request) {
 
     // Format work experience for the system prompt
     const workExperience = careerData.career.map(job => {
-      return `- ${job.title} at ${job.name} (${job.start} - ${job.end || 'Present'})${job.location ? ` - ${job.location}` : ''}
+      const location = 'location' in job ? (job as any).location : undefined;
+      return `- ${job.title} at ${job.name} (${job.start} - ${job.end || 'Present'})${location ? ` - ${location}` : ''}
   ${job.description ? job.description.map(desc => `  • ${desc}`).join('\n') : ''}`;
     }).join('\n\n');
 
@@ -27,7 +28,8 @@ export async function POST(req: Request) {
 
     // Format education for the system prompt
     const education = educationData.education.map(edu => {
-      return `- ${edu.title} at ${edu.name} (${edu.start} - ${edu.end || 'Present'})${edu.location ? ` - ${edu.location}` : ''}
+      const location = 'location' in edu ? (edu as any).location : undefined;
+      return `- ${edu.title} at ${edu.name} (${edu.start} - ${edu.end || 'Present'})${location ? ` - ${location}` : ''}
   ${edu.description ? edu.description.map(desc => `  • ${desc}`).join('\n') : ''}`;
     }).join('\n\n');
 
