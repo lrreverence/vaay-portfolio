@@ -1,62 +1,74 @@
 import { NextResponse } from 'next/server';
-
-const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
+import OpenAI from 'openai';
+import careerData from '@/data/career.json';
+import projectsData from '@/data/projects.json';
+import educationData from '@/data/education.json';
 
 export async function POST(req: Request) {
   try {
     const { messages } = await req.json();
 
-    // Debug logging
-    console.log('API Key exists:', !!process.env.OPENROUTER_API_KEY);
-    console.log('Site URL:', process.env.NEXT_PUBLIC_SITE_URL);
-
-    if (!process.env.OPENROUTER_API_KEY) {
-      throw new Error('OpenRouter API key is not configured');
+    if (!process.env.OPENAI_API_KEY) {
+      throw new Error('OpenAI API key is not configured. Please add OPENAI_API_KEY to your environment variables.');
     }
 
-    const requestBody = {
-      model: "deepseek/deepseek-v3-base:free",
+    // Format work experience for the system prompt
+    const workExperience = careerData.career.map(job => {
+      return `- ${job.title} at ${job.name} (${job.start} - ${job.end || 'Present'})${job.location ? ` - ${job.location}` : ''}
+  ${job.description ? job.description.map(desc => `  • ${desc}`).join('\n') : ''}`;
+    }).join('\n\n');
+
+    // Format projects for the system prompt
+    const projects = projectsData.projects.map(project => {
+      return `- ${project.name}: ${project.description}
+  Technologies: ${project.tags.join(', ')}
+  ${project.links && project.links.length > 0 ? `Links: ${project.links.map(link => link.href).join(', ')}` : ''}`;
+    }).join('\n\n');
+
+    // Format education for the system prompt
+    const education = educationData.education.map(edu => {
+      return `- ${edu.title} at ${edu.name} (${edu.start} - ${edu.end || 'Present'})${edu.location ? ` - ${edu.location}` : ''}
+  ${edu.description ? edu.description.map(desc => `  • ${desc}`).join('\n') : ''}`;
+    }).join('\n\n');
+
+    const systemPrompt = `You are a helpful assistant for Caesar's portfolio website. You have access to detailed information about Caesar's work experience, projects, and education. When asked about these topics, provide specific and detailed answers based on the information below.
+
+WORK EXPERIENCE:
+${workExperience}
+
+PROJECTS:
+${projects}
+
+EDUCATION:
+${education}
+
+When users ask about Caesar's work experience, projects, skills, or education, provide detailed and specific answers. Be conversational and helpful. If asked about "work experience" or "Caesar's work experience", list all the work experiences above with details.`;
+
+    const openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system",
-          content: "You are a helpful assistant that knows about my portfolio. You can answer questions about my projects, skills, and experience."
+          content: systemPrompt
         },
         ...messages
       ],
       temperature: 0.7,
-      max_tokens: 1000,
-    };
-
-    console.log('Request body:', JSON.stringify(requestBody, null, 2));
-
-    const response = await fetch(OPENROUTER_API_URL, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        'HTTP-Referer': process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
-        'X-Title': 'Vaay Portfolio',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(requestBody),
+      max_tokens: 1500,
     });
 
-    console.log('Response status:', response.status);
-    console.log('Response status text:', response.statusText);
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error('OpenRouter API Error:', errorData);
-      throw new Error(`OpenRouter API Error: ${response.status} ${response.statusText} - ${JSON.stringify(errorData)}`);
-    }
-
-    const data = await response.json();
-    return NextResponse.json({ response: data.choices[0].message.content });
+    const response = completion.choices[0]?.message?.content || 'Sorry, I could not generate a response.';
+    
+    return NextResponse.json({ response });
   } catch (error) {
     console.error('Chat API Error:', error);
     return NextResponse.json(
       { 
         error: error instanceof Error ? error.message : 'Failed to process chat request. Please try again later.',
-        details: error instanceof Error ? error.stack : undefined
       },
       { status: 500 }
     );

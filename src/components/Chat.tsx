@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Send, MessageCircle, ChevronDown } from 'lucide-react'
+import Markdown from 'react-markdown'
 
 interface Message {
   content: string
@@ -19,6 +20,7 @@ export default function Chat() {
   const [isOpen, setIsOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [showGuide, setShowGuide] = useState(true)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (showGuide) {
@@ -29,6 +31,13 @@ export default function Chat() {
       return () => clearTimeout(timer)
     }
   }, [showGuide])
+
+  // Auto-scroll to bottom when messages change or loading state changes
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [messages, isLoading])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -116,7 +125,15 @@ export default function Chat() {
                       : 'bg-primary text-primary-foreground [text-shadow:_0_1px_1px_rgb(0_0_0_/_20%)]'
                   }`}
                 >
-                  {index === 0 ? <span className="text-sm">{message.content}</span> : message.content}
+                  {index === 0 ? (
+                    <span className="text-sm">{message.content}</span>
+                  ) : message.isBot ? (
+                    <Markdown className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-li:my-0 prose-strong:text-foreground prose-strong:font-semibold">
+                      {message.content}
+                    </Markdown>
+                  ) : (
+                    message.content
+                  )}
                 </div>
               </div>
             ))}
@@ -127,6 +144,7 @@ export default function Chat() {
                 </div>
               </div>
             )}
+            <div ref={messagesEndRef} />
           </div>
 
           <form onSubmit={handleSubmit} className="p-3 border-t border-border/60 bg-background/90">
