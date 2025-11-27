@@ -81,7 +81,7 @@ export default function Chat() {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-40">
+    <div className="fixed bottom-4 right-4 z-40" style={{ paddingBottom: 'env(safe-area-inset-bottom, 1rem)' }}>
       {!isOpen ? (
         <button
           onClick={() => setIsOpen(true)}
@@ -97,7 +97,7 @@ export default function Chat() {
           </div>
         </button>
       ) : (
-        <div className="w-[240px] sm:w-[300px] bg-background text-foreground rounded-xl shadow-2xl border border-border/60 overflow-hidden">
+        <div className="w-[calc(100vw-2rem)] sm:w-[300px] max-w-[calc(100vw-2rem)] sm:max-w-[300px] bg-background text-foreground rounded-xl shadow-2xl border border-border/60 overflow-hidden">
           <button 
             onClick={() => setIsOpen(false)}
             className="w-full p-3 border-b border-border/60 flex flex-col items-start bg-background/80 backdrop-blur-sm hover:bg-muted transition-colors"
@@ -147,20 +147,21 @@ export default function Chat() {
             <div ref={messagesEndRef} />
           </div>
 
-          <form onSubmit={handleSubmit} className="p-3 border-t border-border/60 bg-background/90">
-            <div className="flex gap-2">
+          <form onSubmit={handleSubmit} className="p-3 border-t border-border/60 bg-background/90" style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0.75rem))' }}>
+            <div className="flex gap-2 items-center">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask something..."
-                className="flex-1 bg-muted text-foreground rounded-xl px-3 py-2 text-sm border border-border/40 focus:outline-none focus:ring-2 focus:ring-primary/60 transition disabled:opacity-60"
+                className="flex-1 bg-muted text-foreground rounded-xl px-3 py-2 text-sm border border-border/40 focus:outline-none focus:ring-2 focus:ring-primary/60 transition disabled:opacity-60 min-w-0"
                 disabled={isLoading}
               />
               <button
                 type="submit"
-                className="bg-primary text-primary-foreground p-2 rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:hover:bg-primary"
+                className="bg-primary text-primary-foreground p-2.5 rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:hover:bg-primary flex-shrink-0"
                 disabled={isLoading}
+                aria-label="Send message"
               >
                 <Send size={18} />
               </button>
@@ -171,7 +172,7 @@ export default function Chat() {
 
       {/* Mobile floating button */}
       {!isOpen && (
-        <div className="sm:hidden fixed bottom-4 right-4 z-40">
+        <div className="sm:hidden fixed bottom-4 right-4 z-40" style={{ paddingBottom: 'env(safe-area-inset-bottom, 1rem)' }}>
           <div className="w-2 h-2 bg-green-500 rounded-full animate-blink absolute top-4 left-3/4 -translate-x-1/2 z-50"></div>
           {showGuide && (
             <div className="absolute bottom-14 right-0 w-[200px] bg-muted text-foreground p-2 rounded-xl shadow-lg border border-border/60 mb-2">
