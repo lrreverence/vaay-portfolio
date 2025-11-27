@@ -12,15 +12,113 @@ import Projects from "@/components/Projects";
 import Posts from "@/components/Posts";
 import { getPosts } from "@/lib/posts";
 import ChatInterface from "@/components/ChatInterface";
+import type { Metadata } from "next";
 
 const blogDirectory = path.join(process.cwd(), "content");
 const posts = getPosts(blogDirectory);
 const LIMIT = 4;
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vaay.dev';
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Caesar Va-ay - Freelance full-stack developer from the Philippines. Specializing in Next.js, React, TypeScript, Python, automation, AI, and machine learning. View my portfolio, projects, and blog.",
+  keywords: [
+    "Caesar Va-ay",
+    "freelance developer Philippines",
+    "full stack developer Cebu",
+    "Next.js developer",
+    "React developer",
+    "TypeScript developer",
+    "Python developer",
+    "web developer portfolio",
+  ],
+  openGraph: {
+    title: "Va-ay | Freelance Full-Stack Developer Portfolio",
+    description: "Caesar Va-ay - Freelance full-stack developer from the Philippines. Specializing in Next.js, React, TypeScript, Python, automation, AI, and machine learning.",
+    url: siteUrl,
+    images: [
+      {
+        url: `${siteUrl}/vaaypp.png`,
+        width: 1200,
+        height: 630,
+        alt: "Caesar Va-ay - Freelance Full-Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Va-ay | Freelance Full-Stack Developer",
+    description: "Caesar Va-ay - Freelance full-stack developer from the Philippines. Specializing in Next.js, React, TypeScript, Python, automation, AI, and machine learning.",
+    images: [`${siteUrl}/vaaypp.png`],
+  },
+};
+
 export default async function Home() {
   const postsData = await posts;
+  
+  // Structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Caesar Va-ay",
+    givenName: "Caesar",
+    familyName: "Va-ay",
+    jobTitle: "Freelance Full-Stack Software Developer",
+    url: siteUrl,
+    image: `${siteUrl}/vaaypp.png`,
+    email: "caesarisidrovaay@gmail.com",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "PH",
+      addressRegion: "Cebu",
+    },
+    sameAs: [
+      "https://www.linkedin.com/in/caesar-isidro-va-ay-2b384b193/",
+      "https://github.com/lrreverence",
+      "https://www.facebook.com/caesarisidro.vaay/",
+      "https://www.instagram.com/va.aya.av/",
+      "https://x.com/kandilasacake",
+    ],
+    description: "Freelance full-stack developer from the Philippines specializing in web development, automation, AI, and machine learning. Building modern applications with Next.js, React, TypeScript, Python, Django, and Flask.",
+    knowsAbout: [
+      "Software Development",
+      "Web Development",
+      "Full Stack Development",
+      "Frontend Development",
+      "Backend Development",
+      "Automation",
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Data Engineering",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Python",
+      "Django",
+      "Flask",
+      "Node.js",
+      "MongoDB",
+      "PostgreSQL",
+      "Supabase",
+    ],
+    alumniOf: {
+      "@type": "EducationalOrganization",
+      name: "University of the Philippines Cebu",
+    },
+    worksFor: {
+      "@type": "Organization",
+      name: "Freelance",
+    },
+  };
+
   return (
-    <article className="mt-8 flex flex-col gap-8 sm:gap-16 pb-16">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <article className="mt-8 flex flex-col gap-8 sm:gap-16 pb-16">
       <section className="flex flex-col items-start gap-8 md:flex-row-reverse md:items-center md:justify-between">
         <Image
           className="rounded-lg mx-auto md:mx-0"
@@ -90,5 +188,6 @@ export default async function Home() {
         <ChatInterface />
       </section>
     </article>
+    </>
   );
 }

@@ -22,9 +22,122 @@ const calistoga = Calistoga({
   fallback: ['Georgia', 'serif']
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vaay.dev';
+const siteName = "Va-ay | Freelance Full-Stack Developer";
+const defaultDescription = "Caesar Va-ay - Freelance full-stack developer from the Philippines specializing in web development, automation, AI, and machine learning. Building modern applications with Next.js, React, TypeScript, Python, and more.";
+const defaultKeywords = [
+  "Caesar Va-ay",
+  "freelance developer",
+  "full stack developer",
+  "software developer Philippines",
+  "web developer Cebu",
+  "Next.js developer",
+  "React developer",
+  "TypeScript developer",
+  "Python developer",
+  "automation developer",
+  "AI developer",
+  "machine learning engineer",
+  "data engineer",
+  "Django developer",
+  "Flask developer",
+  "frontend developer",
+  "backend developer",
+  "portfolio",
+  "freelance software engineer",
+];
+
 export const metadata: Metadata = {
-  title: "Va-ay",
-  description: "My personal site to showcase my developer work and opinions.",
+  metadataBase: new URL(siteUrl),
+  applicationName: "Va-ay Portfolio",
+  title: {
+    default: siteName,
+    template: `%s | ${siteName}`,
+  },
+  description: defaultDescription,
+  keywords: defaultKeywords,
+  authors: [
+    { 
+      name: "Caesar Va-ay",
+      url: siteUrl,
+    },
+  ],
+  creator: "Caesar Va-ay",
+  publisher: "Caesar Va-ay",
+  category: "Technology",
+  classification: "Portfolio",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    alternateLocale: ["en_PH"],
+    url: siteUrl,
+    siteName: siteName,
+    title: siteName,
+    description: defaultDescription,
+    images: [
+      {
+        url: `${siteUrl}/vaaypp.png`,
+        width: 1200,
+        height: 630,
+        alt: "Caesar Va-ay - Freelance Full-Stack Developer Portfolio",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteName,
+    description: defaultDescription,
+    images: [`${siteUrl}/vaaypp.png`],
+    creator: "@kandilasacake",
+    site: "@kandilasacake",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/vaaypp.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: `${siteUrl}/manifest.json`,
+  verification: {
+    // Add your verification codes here when available
+    // google: "your-google-verification-code",
+    // yandex: "your-yandex-verification-code",
+    // yahoo: "your-yahoo-verification-code",
+  },
+  alternates: {
+    canonical: siteUrl,
+    types: {
+      "application/rss+xml": [{ url: `${siteUrl}/feed.xml`, title: "Va-ay Blog RSS Feed" }],
+    },
+  },
+  other: {
+    "theme-color": "#000000",
+    "color-scheme": "dark light",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "apple-mobile-web-app-title": "Va-ay",
+  },
 };
 
 export default function RootLayout({
@@ -35,6 +148,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="format-detection" content="telephone=no" />
         <link
           rel="preconnect"
           href="https://fonts.googleapis.com"
@@ -44,6 +160,8 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
       </head>
       <body
         className={cn(
