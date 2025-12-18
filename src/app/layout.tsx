@@ -22,7 +22,7 @@ const calistoga = Calistoga({
   fallback: ['Georgia', 'serif']
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vaay.dev';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.caesarisidrovaay.online';
 const siteName = "Va-ay | Freelance Full-Stack Developer";
 const defaultDescription = "Caesar Va-ay - Freelance full-stack developer from the Philippines specializing in web development, automation, AI, and machine learning. Building modern applications with Next.js, React, TypeScript, Python, and more.";
 const defaultKeywords = [

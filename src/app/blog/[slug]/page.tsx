@@ -9,7 +9,7 @@ import path from "path";
 import type { Metadata } from "next";
 
 const blogDirectory = path.join(process.cwd(), "content");
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vaay.dev';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.caesarisidrovaay.online';
 
 export async function generateStaticParams() {
   const posts = await getPosts(blogDirectory);

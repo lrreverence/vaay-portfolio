@@ -18,7 +18,7 @@ const blogDirectory = path.join(process.cwd(), "content");
 const posts = getPosts(blogDirectory);
 const LIMIT = 4;
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vaay.dev';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.caesarisidrovaay.online';
 
 export const metadata: Metadata = {
   title: "Home",
@@ -51,6 +51,9 @@ export const metadata: Metadata = {
     title: "Va-ay | Freelance Full-Stack Developer",
     description: "Caesar Va-ay - Freelance full-stack developer from the Philippines. Specializing in Next.js, React, TypeScript, Python, automation, AI, and machine learning.",
     images: [`${siteUrl}/vaaypp.png`],
+  },
+  alternates: {
+    canonical: siteUrl,
   },
 };
 

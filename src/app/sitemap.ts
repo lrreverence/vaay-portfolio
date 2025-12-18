@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getPosts } from '@/lib/posts';
 import path from 'path';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vaay.dev';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.caesarisidrovaay.online';
 const blogDirectory = path.join(process.cwd(), "content");
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

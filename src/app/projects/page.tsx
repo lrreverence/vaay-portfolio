@@ -1,7 +1,7 @@
 import Projects from "@/components/Projects";
 import type { Metadata } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vaay.dev';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.caesarisidrovaay.online';
 
 export const metadata: Metadata = {
   title: "Projects",

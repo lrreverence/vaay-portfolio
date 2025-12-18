@@ -1,6 +1,16 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 
 const lastUpdated = "Sep 2024";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.caesarisidrovaay.online';
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "Privacy policy for Caesar Va-ay's portfolio website. Learn how your information is collected and used.",
+  alternates: {
+    canonical: `${siteUrl}/privacy`,
+  },
+};
 
 export default function page() {
   return (
