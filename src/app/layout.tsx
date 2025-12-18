@@ -113,9 +113,16 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
+      { url: "/vaaypp.png", sizes: "32x32", type: "image/png" },
+      { url: "/vaaypp.png", sizes: "16x16", type: "image/png" },
+      { url: "/vaaypp.png", sizes: "192x192", type: "image/png" },
+      { url: "/vaaypp.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [
       { url: "/vaaypp.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: [
+      { url: "/favicon.ico" },
     ],
   },
   manifest: `${siteUrl}/manifest.json`,
@@ -162,6 +169,12 @@ export default function RootLayout({
         />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        {/* Additional favicon links for better Google indexing */}
+        <link rel="icon" type="image/png" sizes="32x32" href={`${siteUrl}/vaaypp.png`} />
+        <link rel="icon" type="image/png" sizes="16x16" href={`${siteUrl}/vaaypp.png`} />
+        <link rel="icon" type="image/x-icon" href={`${siteUrl}/favicon.ico`} />
+        <link rel="apple-touch-icon" sizes="180x180" href={`${siteUrl}/vaaypp.png`} />
+        <link rel="manifest" href={`${siteUrl}/manifest.json`} />
       </head>
       <body
         className={cn(
