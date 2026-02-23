@@ -1,3 +1,4 @@
+import ChatInterface from "@/components/ChatInterface";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Providers from "@/components/Providers";
@@ -187,6 +188,7 @@ export default function RootLayout({
           <Header />
           <main className="grow">{children}</main>
           <Footer />
+          <ChatInterface />
         </Providers>
       </body>
     </html>

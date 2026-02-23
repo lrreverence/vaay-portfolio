@@ -11,7 +11,7 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 import Projects from "@/components/Projects";
 import Posts from "@/components/Posts";
 import { getPosts } from "@/lib/posts";
-import ChatInterface from "@/components/ChatInterface";
+
 import type { Metadata } from "next";
 
 const blogDirectory = path.join(process.cwd(), "content");
@@ -186,10 +186,6 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-4 sm:gap-8">
-        <h2 className="title text-2xl sm:text-3xl">chat with my portfolio</h2>
-        <ChatInterface />
-      </section>
     </article>
     </>
   );
