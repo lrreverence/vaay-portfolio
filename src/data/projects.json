@@ -1,6 +1,156 @@
 {
   "projects": [
     {
+      "name": "Digithority",
+      "description": "Premium recruitment and talent outsourcing helping US companies hire pre-vetted Filipino professionals through reliable offshore staffing and outsourcing solutions, delivering qualified candidates quickly so you can hire without delays.",
+      "href": "https://digithority.co/",
+      "image": "/digithority.png",
+      "tags": [
+        "Recruitment",
+        "Talent Outsourcing",
+        "Offshore Staffing",
+        "Client Project"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://digithority.co/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "LeadProKi",
+      "description": "LinkedIn outreach automation that connects and chats with people fully automated using Python—streamline your outreach and engage prospects at scale.",
+      "href": "https://leadproki.de/",
+      "image": "/leadproki.png",
+      "tags": [
+        "Python",
+        "LinkedIn",
+        "Automation",
+        "Outreach",
+        "Chat Automation"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://leadproki.de/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "Psychic Power",
+      "description": "Unlock your spiritual journey. Connect with experienced psychics and discover the guidance you seek through authentic spiritual readings.",
+      "image": "/psychicpower.png",
+      "tags": [
+        "Spiritual Readings",
+        "Psychic Services",
+        "Client Project"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://psychicpower.com",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "Concreat Holdings Philippines",
+      "description": "Building enduring value through education. Concreat Holdings Philippines is committed to professional development that embodies integrity, reliability, and resilience central to our heritage. Explore courses and learn with a trusted partner.",
+      "href": "https://concreat-one.vercel.app/",
+      "image": "/concreat.png",
+      "tags": [
+        "Education",
+        "Professional Development",
+        "Client Project"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://concreat-one.vercel.app/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "Skill Cloud",
+      "description": "Outsourcing. Done in Minutes. Access top Filipino talent, vetted locally within 24 hours. We help businesses multiply your workforce (without any hassles). Book and search available assistants now.",
+      "href": "https://skillcloud.au/",
+      "image": "/skillcloud.png",
+      "tags": [
+        "Outsourcing",
+        "Filipino Talent",
+        "Staffing",
+        "Client Project"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://skillcloud.au/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "Toothology Balham Road",
+      "description": "Exceptional dentistry in Balham. Free consultation + complimentary whitening and retainers with selected treatments. Experience exceptional dental care with our modern approach and expert team.",
+      "href": "https://www.toothology.co.uk/",
+      "image": "/toothology.png",
+      "tags": [
+        "Dental",
+        "Healthcare",
+        "Client Project"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://www.toothology.co.uk/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "AudioVideoNation",
+      "description": "Professional AV equipment for every environment. Authorized brands. Fast shipping. Real experts.",
+      "href": "https://audiovideonation.vercel.app/",
+      "image": "/audiovideonation.png",
+      "tags": [
+        "Astro 5.x",
+        "React 19",
+        "TypeScript",
+        "Vite",
+        "WordPress"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://audiovideonation.vercel.app/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "DeepQuant",
+      "description": "Options analytics & Greek exposure platform. Upgrade your data, upgrade your trading. Rely on the best data that summarizes for quick decisions—real-time options analytics, gamma exposure, heatmap, and AI-powered insights.",
+      "href": "https://deepquant.co/",
+      "image": "/deepquant.png",
+      "tags": [
+        "Options Analytics",
+        "Trading",
+        "Fintech",
+        "AI Insights"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://deepquant.co/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
       "name": "FindingBH",
       "description": "Connect renters with quality boarding houses and apartments. Safe, verified, and hassle-free rentals for students and professionals.",
       "href": "https://findmy-pad-ph.vercel.app/",
