@@ -6,9 +6,9 @@
       "href": "https://digithority.co/",
       "image": "/digithority.png",
       "tags": [
-        "Recruitment",
-        "Talent Outsourcing",
-        "Offshore Staffing",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
         "Client Project"
       ],
       "links": [
@@ -44,8 +44,11 @@
       "description": "Unlock your spiritual journey. Connect with experienced psychics and discover the guidance you seek through authentic spiritual readings.",
       "image": "/psychicpower.png",
       "tags": [
-        "Spiritual Readings",
-        "Psychic Services",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Vite",
         "Client Project"
       ],
       "links": [
