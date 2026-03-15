@@ -1,6 +1,5 @@
 import Link from "next/link";
 import path from "path";
-import Image from "next/image";
 import { ArrowDownRight, FileDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import Socials from "@/components/Socials";
@@ -10,6 +9,7 @@ import LinkWithIcon from "@/components/LinkWithIcon";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import Projects from "@/components/Projects";
 import Posts from "@/components/Posts";
+import HeroVideo from "@/components/HeroVideo";
 import { getPosts } from "@/lib/posts";
 
 import type { Metadata } from "next";
@@ -123,14 +123,7 @@ export default async function Home() {
       />
       <article className="mt-8 flex flex-col gap-8 sm:gap-16 pb-16">
       <section className="flex flex-col items-start gap-8 md:flex-row-reverse md:items-center md:justify-between">
-        <Image
-          className="rounded-lg mx-auto md:mx-0"
-          src="/vaaypp.png"
-          alt="Photo of Vaay"
-          width={175}
-          height={175}
-          priority
-        />
+        <HeroVideo />
         <div className="flex flex-col">
           <h1 className="title text-4xl sm:text-5xl">hi va-ay here 👋</h1>
           <p className="mt-4 text-sm sm:text-base font-light">

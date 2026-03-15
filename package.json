@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "screenshots": "node scripts/capture-screenshots.mjs",
-    "screenshots:force": "node scripts/capture-screenshots.mjs --force"
+    "screenshots:force": "node scripts/capture-screenshots.mjs --force",
+    "optimize-video": "bash scripts/optimize-hero-video.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
