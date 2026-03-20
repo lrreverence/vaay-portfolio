@@ -32,6 +32,14 @@ const techStack: TechItem[] = [
     icon: "/tech/python.svg",
   },
   {
+    name: "PHP",
+    icon: "/tech/php.svg",
+  },
+  {
+    name: "Laravel",
+    icon: "/tech/laravel.svg",
+  },
+  {
     name: "JavaScript",
     icon: "/tech/javascript.svg",
   },

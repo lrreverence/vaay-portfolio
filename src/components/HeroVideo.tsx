@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 const DARK_PAUSE_AT_SECONDS = 0;
 const LIGHT_PAUSE_AT_SECONDS = 4;
-const PLAYBACK_RATE = 2; // 2x speed → 4 sec of video plays in 2 real seconds
+const PLAYBACK_RATE = 10; // 4x speed → 4 sec of video plays in 1 real second
 const VIDEO_SRC = "/vid-optimized.mp4";
 
 export default function HeroVideo() {
