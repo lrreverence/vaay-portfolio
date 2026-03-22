@@ -117,7 +117,7 @@
     {
       "name": "AudioVideoNation",
       "description": "Professional AV equipment for every environment. Authorized brands. Fast shipping. Real experts.",
-      "href": "https://audiovideonation.vercel.app/",
+      "href": "https://audiovideonation.com/",
       "image": "/audiovideonation.png",
       "tags": [
         "Astro 5.x",
@@ -129,7 +129,7 @@
       "links": [
         {
           "name": "Website",
-          "href": "https://audiovideonation.vercel.app/",
+          "href": "https://audiovideonation.com/",
           "icon": "globe"
         }
       ]
