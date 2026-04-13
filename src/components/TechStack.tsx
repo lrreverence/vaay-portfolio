@@ -28,6 +28,14 @@ const techStack: TechItem[] = [
     icon: "/tech/nodejs.svg",
   },
   {
+    name: "Docker",
+    icon: "/tech/docker.svg",
+  },
+  {
+    name: "Kubernetes",
+    icon: "/tech/kubernetes.svg",
+  },
+  {
     name: "Python",
     icon: "/tech/python.svg",
   },

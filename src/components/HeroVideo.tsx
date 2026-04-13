@@ -86,15 +86,18 @@ export default function HeroVideo() {
   }, [resolvedTheme, videoSrc]);
 
   return (
-    <video
-      ref={videoRef}
-      className="rounded-lg mx-auto md:mx-0 w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] object-cover"
-      src={videoSrc ?? undefined}
-      poster="/vaaypp.png"
-      preload="metadata"
-      muted
-      playsInline
-      aria-label="Video of Vaay"
-    />
+    <div className="mx-auto md:mx-0 w-[340px] sm:w-[420px] md:w-[480px] aspect-[9/16]">
+      <video
+        ref={videoRef}
+        width={720}
+        height={1280}
+        className="block w-full h-full rounded-lg object-cover"
+        src={videoSrc ?? undefined}
+        preload="metadata"
+        muted
+        playsInline
+        aria-label="Video of Vaay"
+      />
+    </div>
   );
 }
