@@ -1,6 +1,146 @@
 {
   "projects": [
     {
+      "name": "AC Demolition",
+      "description": "Complete demolition solutions for Adelaide and South Australia. Safe, efficient and professional residential, commercial and industrial demolition and asbestos removal — fully licensed, insured and locally owned with 35+ years experience.",
+      "href": "https://ac-demolition.vercel.app/",
+      "image": "/ac-demolition.png",
+      "tags": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Client Project"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://ac-demolition.vercel.app/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "Shower Surgeon",
+      "description": "Adelaide's shower repair specialists. Expert same-day shower repairs with no tile removal, fixed pricing and fully guaranteed workmanship — servicing metro Adelaide, the Hills and the Barossa.",
+      "href": "https://www.showersurgeon.com.au/",
+      "image": "/showersurgeon.png",
+      "tags": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Client Project"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://www.showersurgeon.com.au/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "Brook Turf",
+      "description": "Premium instant turf delivered across South Australia. Locally grown on the Fleurieu Peninsula, freshly harvested and delivered to your door — family owned and operated since 1974.",
+      "href": "https://brookturf-au.vercel.app/",
+      "image": "/brookturf.png",
+      "tags": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Client Project"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://brookturf-au.vercel.app/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "Designer Dentures",
+      "description": "South Australia's trusted denture specialists. Custom-made dentures, expertly crafted for comfort, function and confidence — manufactured in-house in Adelaide by a qualified Dental Prosthetist with over 40 years of experience.",
+      "href": "https://designer-dentures-au.vercel.app/",
+      "image": "/designer-dentures.png",
+      "tags": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Client Project"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://designer-dentures-au.vercel.app/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "McGregor Media",
+      "description": "More leads. More calls. More jobs. High-performing Google, Facebook, Instagram & TikTok ads that deliver real enquiries and consistent booked jobs for trade and service businesses across Adelaide, Melbourne and Australia.",
+      "href": "https://www.mcgregormedia.com.au/",
+      "image": "/mcgregormedia.png",
+      "tags": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Client Project"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://www.mcgregormedia.com.au/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "Stanvac",
+      "description": "Korean auto parts specialists. Quality used and recycled Hyundai & Kia parts at great prices in Adelaide — 3 month warranty on mechanical parts, fast local delivery across SA Metro, and Australia-wide shipping.",
+      "href": "https://stanvac-korean-auto-parts.vercel.app/",
+      "image": "/stanvac.png",
+      "tags": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Client Project"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://stanvac-korean-auto-parts.vercel.app/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "Hills and South Coast Demolition",
+      "description": "Domestic | Commercial | Industrial. Safe, reliable demolition experts. Hills & South Coast Demolition delivers innovative, safe and cost-effective demolition solutions across the Adelaide Hills, South Coast and surrounding regions.",
+      "href": "https://hill-south-demolition-au.vercel.app/",
+      "image": "/hill-south-demolition.png",
+      "tags": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Client Project"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://hill-south-demolition-au.vercel.app/",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
       "name": "Digithority",
       "description": "Premium recruitment and talent outsourcing helping US companies hire pre-vetted Filipino professionals through reliable offshore staffing and outsourcing solutions, delivering qualified candidates quickly so you can hire without delays.",
       "href": "https://digithority.co/",
