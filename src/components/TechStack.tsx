@@ -20,6 +20,11 @@ const techStack: TechItem[] = [
     lightIcon: "/tech/nextjslight.svg",
   },
   {
+    name: "Astro",
+    icon: "/tech/astro.svg",
+    lightIcon: "/tech/astrolight.svg",
+  },
+  {
     name: "TypeScript",
     icon: "/tech/typescript.svg",
   },

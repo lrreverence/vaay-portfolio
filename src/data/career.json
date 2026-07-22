@@ -15,6 +15,20 @@
       ]
     },
     {
+      "name": "Skill Cloud",
+      "href": "https://skillcloud.au/",
+      "title": "Full-Stack Developer",
+      "logo": "/skillcloud-logo.png",
+      "start": "September 2025",
+      "end": "February 2026",
+      "location": "Australia, Remote",
+      "description": [
+        "Built role-specific dashboards for a staffing platform connecting Filipino workers with Australian clients",
+        "Developed an end-to-end booking workflow for talent discovery, booking submission, status tracking, and booking management",
+        "Contributed reusable frontend components and backend integrations for a two-sided marketplace serving workers and clients"
+      ]
+    },
+    {
       "name": "Alliance Software Inc.",
       "href": "https://www.alliance.com.ph",
       "title": "Software Engineer Intern",

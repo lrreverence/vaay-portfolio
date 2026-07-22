@@ -16,6 +16,11 @@
       "icon": "mail"
     },
     {
+      "name": "WhatsApp",
+      "href": "https://wa.me/639301531356",
+      "icon": "phone"
+    },
+    {
       "name": "Facebook",
       "href": "https://www.facebook.com/caesarisidro.vaay/",
       "icon": "facebook"
@@ -26,7 +31,7 @@
       "icon": "instagram"
     },
     {
-      "name": "Twitter",
+      "name": "X",
       "href": "https://x.com/kandilasacake",
       "icon": "twitter"
     }
