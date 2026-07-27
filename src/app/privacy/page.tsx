@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
-const lastUpdated = "Sep 2024";
+const lastUpdated = "Jul 2026";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.caesarisidrovaay.online';
 
 export const metadata: Metadata = {
@@ -28,16 +28,29 @@ export default function page() {
         </p>
         <h2 className="title">What Information I Collect (Hint: Not Much)</h2>
         <p>
-          Honestly, this is just a static portfolio site, so I don&apos;t
-          actively collect any personal information. There&apos;s no account
-          creation, no tracking cookies, and definitely no sneaky data
-          gathering.
+          This is mainly a portfolio site. There&apos;s no account creation, and
+          I don&apos;t sell or rent your personal information.
         </p>
         <h3>1. Contact Info</h3>
         <p>
           If you reach out via email or the contact form, the info you provide
           is entirely up to you. I&apos;ll only use it to reply and have a
           conversation with you—no funny business.
+        </p>
+        <h3>2. Analytics</h3>
+        <p>
+          I use Microsoft Clarity and Vercel Analytics to understand how people
+          use the site (for example, page views, clicks, and session recordings).
+          These tools may set cookies or similar technologies. You can learn more
+          in the{" "}
+          <Link
+            href="https://privacy.microsoft.com/privacystatement"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Microsoft Privacy Statement
+          </Link>
+          .
         </p>
         <h2 className="title">How I Use the Info</h2>
         <p>Here&apos;s what I might do with any information I collect:</p>
