@@ -294,27 +294,6 @@
       ]
     },
     {
-      "name": "FindingBH",
-      "description": "Connect renters with quality boarding houses and apartments. Safe, verified, and hassle-free rentals for students and professionals.",
-      "href": "https://findmy-pad-ph.vercel.app/",
-      "image": "/findingbh.png",
-      "tags": [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Supabase",
-        "Vercel"
-      ],
-      "links": [
-        {
-          "name": "Website",
-          "href": "https://findmy-pad-ph.vercel.app/",
-          "icon": "globe"
-        }
-      ]
-    },
-    {
       "name": "Luca NextGen Financial",
       "description": "A modern financial services website for a forward-thinking CFO company that combines AI-driven tools with expert financial guidance, featuring service tiers, industry solutions, and consultation booking",
       "href": "https://www.lucanextgen.ai/",
@@ -390,24 +369,6 @@
         {
           "name": "Website",
           "href": "https://vulos-ecommerce.vercel.app/",
-          "icon": "globe"
-        }
-      ]
-    },
-    {
-      "name": "Sensomatic Solutions",
-      "description": "A comprehensive platform offering sensor solutions and IoT technologies, providing innovative sensor-based products and services for various industrial and commercial applications",
-      "href": "https://sensomatic-solutions.vercel.app/",
-      "image": "/sensomatic.png",
-      "tags": [
-        "JavaScript",
-        "HTML",
-        "CSS"
-      ],
-      "links": [
-        {
-          "name": "Website",
-          "href": "https://sensomatic-solutions.vercel.app/",
           "icon": "globe"
         }
       ]
