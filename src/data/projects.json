@@ -3,7 +3,7 @@
     {
       "name": "AC Demolition",
       "description": "Complete demolition solutions for Adelaide and South Australia. Safe, efficient and professional residential, commercial and industrial demolition and asbestos removal — fully licensed, insured and locally owned with 35+ years experience.",
-      "href": "https://ac-demolition.vercel.app/",
+      "href": "https://www.acdemolition.com.au/",
       "image": "/ac-demolition.png",
       "tags": [
         "Next.js",
@@ -15,7 +15,7 @@
       "links": [
         {
           "name": "Website",
-          "href": "https://ac-demolition.vercel.app/",
+          "href": "https://www.acdemolition.com.au/",
           "icon": "globe"
         }
       ]
@@ -43,7 +43,7 @@
     {
       "name": "Brook Turf",
       "description": "Premium instant turf delivered across South Australia. Locally grown on the Fleurieu Peninsula, freshly harvested and delivered to your door — family owned and operated since 1974.",
-      "href": "https://brookturf-au.vercel.app/",
+      "href": "https://www.brookturf.com.au/",
       "image": "/brookturf.png",
       "tags": [
         "Next.js",
@@ -55,7 +55,7 @@
       "links": [
         {
           "name": "Website",
-          "href": "https://brookturf-au.vercel.app/",
+          "href": "https://www.brookturf.com.au/",
           "icon": "globe"
         }
       ]
@@ -63,7 +63,7 @@
     {
       "name": "Designer Dentures",
       "description": "South Australia's trusted denture specialists. Custom-made dentures, expertly crafted for comfort, function and confidence — manufactured in-house in Adelaide by a qualified Dental Prosthetist with over 40 years of experience.",
-      "href": "https://designer-dentures-au.vercel.app/",
+      "href": "https://designerdentures.com.au/",
       "image": "/designer-dentures.png",
       "tags": [
         "Next.js",
@@ -75,7 +75,7 @@
       "links": [
         {
           "name": "Website",
-          "href": "https://designer-dentures-au.vercel.app/",
+          "href": "https://designerdentures.com.au/",
           "icon": "globe"
         }
       ]
@@ -103,7 +103,7 @@
     {
       "name": "Stanvac",
       "description": "Korean auto parts specialists. Quality used and recycled Hyundai & Kia parts at great prices in Adelaide — 3 month warranty on mechanical parts, fast local delivery across SA Metro, and Australia-wide shipping.",
-      "href": "https://stanvac-korean-auto-parts.vercel.app/",
+      "href": "https://www.stanvac.com.au/",
       "image": "/stanvac.png",
       "tags": [
         "Next.js",
@@ -115,7 +115,7 @@
       "links": [
         {
           "name": "Website",
-          "href": "https://stanvac-korean-auto-parts.vercel.app/",
+          "href": "https://www.stanvac.com.au/",
           "icon": "globe"
         }
       ]
@@ -123,7 +123,7 @@
     {
       "name": "Hills and South Coast Demolition",
       "description": "Domestic | Commercial | Industrial. Safe, reliable demolition experts. Hills & South Coast Demolition delivers innovative, safe and cost-effective demolition solutions across the Adelaide Hills, South Coast and surrounding regions.",
-      "href": "https://hill-south-demolition-au.vercel.app/",
+      "href": "https://hillsandsouthcoast.com.au/",
       "image": "/hill-south-demolition.png",
       "tags": [
         "Next.js",
@@ -135,7 +135,7 @@
       "links": [
         {
           "name": "Website",
-          "href": "https://hill-south-demolition-au.vercel.app/",
+          "href": "https://hillsandsouthcoast.com.au/",
           "icon": "globe"
         }
       ]
