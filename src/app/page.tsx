@@ -10,7 +10,6 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 import Projects from "@/components/Projects";
 import Posts from "@/components/Posts";
 import HeroVideo from "@/components/HeroVideo";
-import { GithubCalendar } from "@/components/ui/github-calendar";
 import { getPosts } from "@/lib/posts";
 
 import type { Metadata } from "next";
@@ -153,13 +152,6 @@ export default async function Home() {
       <Experience />
 
       <TechStack />
-
-      <section className="flex flex-col gap-4 sm:gap-8">
-        <h2 className="title text-2xl sm:text-3xl">github activity</h2>
-        <div className="overflow-x-auto pb-2">
-          <GithubCalendar username="lrreverence" colorSchema="green" />
-        </div>
-      </section>
 
       <section className="flex flex-col gap-4 sm:gap-8">
         <h2 className="title text-2xl sm:text-3xl">featured projects</h2>
