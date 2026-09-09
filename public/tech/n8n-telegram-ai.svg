@@ -1,0 +1,28 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="telegram-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="36" fill="url(#telegram-bg)" />
+  <circle cx="300" cy="170" r="84" fill="#f1f5f9" opacity="0.24" />
+  <path
+    d="M250 130h100l-25 85 32-10 18 22-48 16 29 52-38-28-66 22 17-85 78-52H250z"
+    fill="#f8fafc"
+  />
+  <rect x="620" y="110" width="470" height="455" rx="24" fill="#020617" opacity="0.7" />
+  <text x="640" y="250" fill="#e2e8f0" font-size="52" font-family="Arial, sans-serif" font-weight="700">
+    Telegram AI Assistant
+  </text>
+  <text x="640" y="320" fill="#cbd5e1" font-size="36" font-family="Arial, sans-serif">
+    n8n Workflow
+  </text>
+  <text x="640" y="380" fill="#cbd5e1" font-size="28" font-family="Arial, sans-serif">
+    Voice + Text Support
+  </text>
+  <rect x="640" y="430" width="320" height="78" rx="14" fill="#f1f5f9" opacity="0.9" />
+  <text x="800" y="482" text-anchor="middle" fill="#0f172a" font-size="36" font-family="Arial, sans-serif" font-weight="700">
+    Category: Ops AI
+  </text>
+</svg>

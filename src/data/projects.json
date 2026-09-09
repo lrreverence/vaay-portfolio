@@ -498,6 +498,54 @@
           "icon": "globe"
         }
       ]
+    },
+    {
+      "name": "Smart Support Copilot",
+      "description": "Built a custom Telegram support assistant that handles both text and voice tickets, classifies requests, and triggers role-based automations for CRM updates, team handoffs, and notifications.",
+      "image": "/tech/n8n-telegram-ai.svg",
+      "tags": [
+        "Category: Operations AI",
+        "n8n",
+        "OpenAI",
+        "Automation",
+        "Telegram Bot",
+        "Workflow Design",
+        "Custom Automation"
+      ],
+      "links": [
+      ]
+    },
+    {
+      "name": "Adaptive Onboarding Workflow",
+      "description": "Built a private CRM onboarding engine with staged handoff rules, personalized email nudges, and sales-team alerts that keep new leads moving through setup milestones without manual follow-up.",
+      "image": "/tech/n8n-hubspot-onboarding.svg",
+      "tags": [
+        "Category: Sales Onboarding",
+        "n8n",
+        "HubSpot",
+        "Email Automation",
+        "Sales Ops",
+        "Automation Pipeline",
+        "Custom Implementation"
+      ],
+      "links": [
+      ]
+    },
+    {
+      "name": "Procurement Negotiation Orchestrator",
+      "description": "Developed an AI-assisted procurement workflow that drafts negotiation messages, monitors supplier responses, and drives follow-up actions across spreadsheets, task boards, and team channels.",
+      "image": "/tech/n8n-supplier-negotiation.svg",
+      "tags": [
+        "Category: Procurement AI",
+        "n8n",
+        "Procurement",
+        "GPT-4o",
+        "Google Workspace",
+        "Slack",
+        "Custom Automation"
+      ],
+      "links": [
+      ]
     }
   ]
 }
