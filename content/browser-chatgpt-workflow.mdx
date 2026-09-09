@@ -1,0 +1,168 @@
+---
+title: "How I Use ChatGPT in the Browser for Daily Development"
+summary: "A practical, expert workflow for using browser ChatGPT as a fast research, planning, and execution helper during real software development work."
+image: "/vaaypp.png"
+publishedAt: "2026-09-09"
+---
+
+Most teams keep ChatGPT in a side tab, but the biggest gains come from using it as an active workflow layer in my browser.
+
+I use it as a **developer instrument panel**: gather context, validate ideas, draft decisions, and reduce repetitive cognitive load so I can spend more time building.
+
+This is how I do it.
+
+## My browser-first ChatGPT rulebook
+
+I open three tabs whenever possible:
+
+- **1 tab: Ticket / task notes**  
+  What I’m solving, constraints, and acceptance criteria.
+- **1 tab: documentation / references**  
+  Official docs or previous decisions.
+- **1 tab: ChatGPT**  
+  Prompted for synthesis, alternatives, and execution guidance.
+
+I never start with “write code.” I start with “clarify objective.”
+
+## Prompt pattern I reuse every day
+
+I use this structure as my default entry prompt:
+
+```text
+You are an engineering partner.
+Context:
+- Task: <what I need to solve>
+- Product stack: <framework/library/backend>
+- Scope: <small/medium/large>
+- Constraints: <time, breaking-change risk, security, performance, budget>
+
+Please return:
+1. The shortest viable approach.
+2. 2 alternatives with tradeoffs.
+3. A recommended implementation order.
+4. 5 likely failure points.
+5. A browser verification checklist.
+```
+
+This forces the model to stay decision-focused, not just output-first.
+
+## Browser workflow by daypart
+
+### Morning planning
+
+Use ChatGPT in browser mode to do a decision pass before coding:
+
+```text
+Based on this task and current architecture notes, propose a plan that minimizes regression risk.
+
+Requirements:
+- Must keep backward compatibility for existing API consumers.
+- Must not add a new dependency.
+- Should be deployable behind a feature flag first.
+
+Output:
+- Milestone plan
+- Files to touch
+- Validation strategy
+```
+
+### During implementation
+
+When code is blocked or a third-party behavior is unclear:
+
+```text
+I hit this issue in my browser devtools with the following error: <paste snippet>.
+
+Help me narrow down:
+1) likely root cause
+2) 3 fixes ranked by risk
+3) exact next debug command or action in devtools/terminal
+```
+
+If the issue is around async behavior, I ask:
+
+```text
+Given this function flow, identify race conditions and write a safer execution sequence.
+Explain each change in plain language and then in concise code.
+```
+
+### Documentation and API research
+
+I ask for comparison-level summaries instead of copy-pasted docs:
+
+```text
+Compare official docs for <tool/API> across v1 and v2.
+Give me:
+- Behavioral differences
+- Breaking changes relevant to this stack
+- Migration order I can execute in one week
+```
+
+This makes browser browsing much faster because I don’t read endless pages and miss only what matters.
+
+### Pull request thinking
+
+Before I open a PR, I use a final browser-pass prompt:
+
+```text
+Act as a lead reviewer.
+
+Given the patch summary below, check for:
+- hidden coupling risks
+- test gaps
+- rollback points
+- release notes wording for non-technical readers
+
+Respond in three sections:
+1. Must-fix risks
+2. Nice-to-fix improvements
+3. Final go/no-go recommendation
+```
+
+## The key quality gate
+
+I do not trust raw output. I trust **structured output + verification**:
+
+- Ask for assumptions first, then execute.
+- Ask for failure modes, then test.
+- Ask for rollout steps, then actually monitor.
+
+ChatGPT can accelerate my work, but only if I force it into this loop.
+
+## Browser + ChatGPT prompt stack (copy this)
+
+I keep these three prompts pinned:
+
+#### 1) Scope + architecture
+
+```text
+State the exact technical scope before suggesting implementation details.
+If scope is unclear, ask clarifying questions first.
+```
+
+#### 2) Quick implementation
+
+```text
+Give me the shortest path to solve this with low blast radius.
+No hype. No unnecessary abstraction. Include edge cases.
+```
+
+#### 3) Risk + rollout
+
+```text
+List the top 5 risks and the single best test/check for each.
+Include a rollback plan.
+```
+
+## Final note
+
+Use ChatGPT in browser for:
+- **speed** (rapid synthesis),
+- **clarity** (forced decision structure),
+- **discipline** (forced checks before coding),
+- **confidence** (fewer “hope this works” moments).
+
+The biggest improvement is not the model.  
+It is the process around it.
+
+— Va-ay

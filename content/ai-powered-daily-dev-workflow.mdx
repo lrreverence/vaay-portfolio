@@ -1,0 +1,184 @@
+---
+title: "How I Use AI in My Daily Development Workflow"
+summary: "A practical walkthrough of how I use Cursor, Codex, and Claude as a high-performance dev stack: planning, implementation, debugging, and shipping with precision."
+image: "/vaaypp.png"
+publishedAt: "2026-09-09"
+---
+
+AI does not make me a faster coder by itself. It makes me a better engineer when I use it as a structured process.
+
+For the last few years, I’ve built my daily workflow around three tools:
+
+- `Cursor` for fast local coding flow and IDE-aware edits.
+- `Codex` for execution-heavy refactors, debugging, and turning ambiguous requirements into concrete artifacts.
+- `Claude` for systems thinking, architecture validation, and writing production-ready plans before I touch code.
+
+I treat AI as a technical partner, not a replacement for judgment.
+
+Here’s the practical playbook I follow every day.
+
+## 1) I anchor everything to a clear problem statement
+
+My first move is never “generate code.”
+
+I send an explicit problem statement and success criteria, then ask for alternatives, tradeoffs, and risks.
+
+### My planning prompt
+
+```text
+You are my principal engineer. Before writing code, give me:
+1. A short problem summary in 2–3 sentences.
+2. 3 possible implementation approaches with tradeoffs.
+3. Recommended approach and why.
+4. Edge cases, failure modes, and assumptions.
+5. A minimal implementation plan with milestones.
+
+Context:
+- Goal: <goal>
+- Environment: <framework/language>
+- Constraints: <performance, time, data privacy, etc.>
+- Success criteria: <how we measure done>
+```
+
+This converts vague tickets into a technical action plan. If this prompt returns weak options, I know the requirement is not concrete enough and I clarify first.
+
+## 2) I split one big problem into a sequence of small, testable outputs
+
+The best AI workflows never hand over a giant feature request.
+
+I ask for chunked output:
+
+- schema + migration
+- core function implementations
+- tests
+- docs + rollback plan
+
+That keeps context small and helps me review quality quickly.
+
+### Cursor prompt (for implementation)
+
+```text
+Using the following codebase context, implement this change in small, atomic steps.
+
+Task: <feature/bugfix>
+Files likely impacted: <file list>
+
+Rules:
+- Do not invent new dependencies unless necessary and justify each one.
+- Preserve existing style and naming patterns.
+- Add or update types before implementation where applicable.
+- Include inline comments only when logic is non-trivial.
+- Finish with a changelist and a short rollback note.
+```
+
+I use Cursor for this part because it understands local code context, folder structure, and symbols, so I get precise edits instead of generic snippets.
+
+## 3) I use Codex as a second pair of hands for hard checks
+
+When I already have a drafted implementation, I pass it to Codex as a reviewer-and-refactor engine.
+
+### Codex review prompt
+
+````text
+You are reviewing this implementation for production readiness.
+
+1. Find logic bugs and race conditions.
+2. Identify edge cases not covered by current logic.
+3. Suggest performance improvements and complexity changes.
+4. Enforce security correctness (input validation, auth checks, secret handling).
+5. Provide a cleaner version of any risky function with minimal changes.
+
+Context:
+```text
+<paste code>
+```
+
+Do not generate a full rewrite. Give targeted fixes and explain why each change matters.
+````
+
+This is where I usually catch issues from “works on my machine” thinking.
+
+## 4) I use Claude for architecture and long-form reasoning
+
+Claude is where I do deeper tradeoff analysis:
+
+- Is this the right abstraction?
+- Which boundary should be server/client?
+- What is the most maintainable folder/module design?
+- How will this evolve in 3 months?
+
+### Claude design prompt
+
+```text
+Act as a staff engineer reviewing this architecture.
+
+Given this feature and current stack, give me:
+1. Domain model (entities and relationships)
+2. Service boundaries and data flow
+3. State ownership strategy
+4. Error handling model
+5. A migration/extension plan for the next 3 features
+
+If there is a better approach than mine, give me the stronger alternative.
+```
+
+I prefer this when I need to avoid overfitting to today’s requirement and preserve future flexibility.
+
+## 5) My production hardening loop
+
+Once code is in place, I run a loop that looks the same every day:
+
+1. **Validate behavior**: verify happy path and edge cases.
+2. **Write/adjust tests**: especially where failure becomes silent.
+3. **Check observability**: logs, timings, and error signatures.
+4. **Draft rollout plan**: what to monitor and rollback criteria.
+5. **Document decisions** in code comments or PR notes.
+
+I ask AI for all these in one response where possible, then I verify manually.
+
+### Rollout quality prompt
+
+```text
+Generate an execution checklist for shipping this change safely.
+
+Include:
+- Local verification steps
+- Regression risks
+- Monitoring metrics to track
+- Rollback condition and recovery steps
+- One-paragraph non-technical summary for product stakeholders
+
+Context:
+- Change summary: <brief>
+- Tech stack: <stack>
+- Deployment environment: <env>
+```
+
+## 6) The “prompt quality” principle I never skip
+
+Good prompts have three parts:
+
+- **Context**: what the app is, what constraints exist.
+- **Task**: what output you need and why.
+- **Boundaries**: what is forbidden and what must be preserved.
+
+Without those, I get fluff. With those, I get reusable engineering output.
+
+## My daily AI dev stack, in short
+
+I use AI dozens of times per day, but never in isolation. Here’s the order:
+
+- **Morning**: plan and decompose with Claude.
+- **Build sessions**: implement with Cursor.
+- **Cross-checks**: validate with Codex.
+- **Wrap-up**: convert notes into PRs, changelogs, and follow-up prompts.
+
+I still debug with logs, I still run tests, I still reason through edge cases myself. The difference is speed and confidence.
+
+If you want the same velocity, adopt the same discipline:
+
+> Define the problem like an architect, implement like an operator, and review like a reviewer.
+
+That mindset is what turns AI from “autocomplete with hype” into a real engineering advantage.
+
+— Va-ay
