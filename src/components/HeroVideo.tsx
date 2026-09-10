@@ -3,10 +3,10 @@
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 
-const LIGHT_FRAME_SECONDS = 4;
-const DARK_FRAME_SECONDS = 8;
-const PLAYBACK_RATE = 10;
-const VIDEO_SRC = "/vid-theme-transition.mp4";
+const DARK_PAUSE_AT_SECONDS = 0;
+const LIGHT_PAUSE_AT_SECONDS = 4;
+const PLAYBACK_RATE = 10; // 4x speed → 4 sec of video plays in 1 real second
+const VIDEO_SRC = "/vid-optimized.mp4";
 
 export default function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -23,96 +23,75 @@ export default function HeroVideo() {
     const video = videoRef.current;
     if (!video || !resolvedTheme || !videoSrc) return;
 
-    let animationFrameId: number | undefined;
-    let isCancelled = false;
-
-    const stopPlayback = () => {
-      video.pause();
-      if (animationFrameId !== undefined) {
-        cancelAnimationFrame(animationFrameId);
-        animationFrameId = undefined;
-      }
-    };
-
-    const playUntil = (endTime: number) => {
-      video.playbackRate = PLAYBACK_RATE;
-
-      const stopAtEnd = () => {
-        if (video.currentTime >= endTime || video.ended) {
-          stopPlayback();
-          video.currentTime = endTime;
-          return;
-        }
-
-        animationFrameId = requestAnimationFrame(stopAtEnd);
-      };
-
-      animationFrameId = requestAnimationFrame(stopAtEnd);
-      video.play().catch(() => {
-        if (!isCancelled) {
-          stopPlayback();
-          video.currentTime = endTime;
-        }
-      });
-    };
+    let cleanup: (() => void) | void;
 
     const applyTheme = () => {
-      if (video.readyState < HTMLMediaElement.HAVE_METADATA) return;
+      cleanup?.();
 
-      stopPlayback();
+      if (resolvedTheme === "dark") {
+        const wasLight = previousThemeRef.current === "light";
+        previousThemeRef.current = "dark";
 
-      const nextTheme = resolvedTheme === "dark" ? "dark" : "light";
-      const previousTheme = previousThemeRef.current;
-      previousThemeRef.current = nextTheme;
+        if (wasLight) {
+          video.currentTime = LIGHT_PAUSE_AT_SECONDS;
+          video.pause();
 
-      if (previousTheme === null || previousTheme === nextTheme) {
-        video.currentTime =
-          nextTheme === "dark" ? DARK_FRAME_SECONDS : LIGHT_FRAME_SECONDS;
-        return;
-      }
-
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-
-      if (prefersReducedMotion) {
-        video.currentTime =
-          nextTheme === "dark" ? DARK_FRAME_SECONDS : LIGHT_FRAME_SECONDS;
-        return;
-      }
-
-      if (nextTheme === "dark") {
-        // The second half of the clip contains the pre-rendered reverse motion.
-        // Map an interrupted forward transition to the matching reverse frame.
-        if (video.currentTime < LIGHT_FRAME_SECONDS) {
-          video.currentTime = DARK_FRAME_SECONDS - video.currentTime;
+          video.playbackRate = PLAYBACK_RATE;
+          let rafId: number;
+          const playBackwards = () => {
+            video.currentTime -= PLAYBACK_RATE / 60;
+            if (video.currentTime <= DARK_PAUSE_AT_SECONDS) {
+              video.currentTime = DARK_PAUSE_AT_SECONDS;
+              video.pause();
+              return;
+            }
+            rafId = requestAnimationFrame(playBackwards);
+          };
+          rafId = requestAnimationFrame(playBackwards);
+          cleanup = () => cancelAnimationFrame(rafId);
+        } else {
+          video.currentTime = DARK_PAUSE_AT_SECONDS;
+          video.pause();
         }
-        playUntil(DARK_FRAME_SECONDS);
       } else {
-        // Map an interrupted reverse transition back to the matching forward frame.
-        if (video.currentTime > LIGHT_FRAME_SECONDS) {
-          video.currentTime = DARK_FRAME_SECONDS - video.currentTime;
+        const wasDark = previousThemeRef.current === "dark";
+        previousThemeRef.current = "light";
+
+        if (wasDark) {
+          video.currentTime = 0;
+          video.playbackRate = PLAYBACK_RATE;
+          video.play().catch(() => {});
+
+          const stopAtFour = () => {
+            if (video.currentTime >= LIGHT_PAUSE_AT_SECONDS) {
+              video.pause();
+              video.removeEventListener("timeupdate", stopAtFour);
+            }
+          };
+          video.addEventListener("timeupdate", stopAtFour);
+          cleanup = () => video.removeEventListener("timeupdate", stopAtFour);
+        } else {
+          video.currentTime = LIGHT_PAUSE_AT_SECONDS;
+          video.pause();
         }
-        playUntil(LIGHT_FRAME_SECONDS);
       }
     };
 
-    video.addEventListener("loadedmetadata", applyTheme);
     applyTheme();
+    video.addEventListener("loadedmetadata", applyTheme);
     return () => {
-      isCancelled = true;
       video.removeEventListener("loadedmetadata", applyTheme);
-      stopPlayback();
+      cleanup?.();
     };
   }, [resolvedTheme, videoSrc]);
 
   return (
-    <div className="mx-auto aspect-[9/16] w-[340px] sm:w-[420px] md:mx-0 md:w-[480px]">
+    <div className="mx-auto md:mx-0 w-[340px] sm:w-[420px] md:w-[480px] aspect-[9/16]">
       <video
         ref={videoRef}
         width={720}
         height={1280}
-        className="block h-full w-full rounded-lg object-cover"
+        className="block w-full h-full rounded-lg object-cover"
         src={videoSrc ?? undefined}
         preload="metadata"
         muted
