@@ -3,100 +3,150 @@
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 
-const DARK_PAUSE_AT_SECONDS = 0;
-const LIGHT_PAUSE_AT_SECONDS = 4;
-const PLAYBACK_RATE = 10; // 4x speed → 4 sec of video plays in 1 real second
-const VIDEO_SRC = "/vid-optimized.mp4";
+const DARK_FRAME_SECONDS = 0;
+const LIGHT_FRAME_SECONDS = 4;
+const PLAYBACK_RATE = 10;
+const FORWARD_VIDEO_SRC = "/vid-optimized.mp4";
+const REVERSE_VIDEO_SRC = "/vid-optimized-reverse.mp4";
+
+type ActiveVideo = "forward" | "reverse";
 
 export default function HeroVideo() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const forwardVideoRef = useRef<HTMLVideoElement>(null);
+  const reverseVideoRef = useRef<HTMLVideoElement>(null);
+  const activeVideoRef = useRef<ActiveVideo>("forward");
   const previousThemeRef = useRef<string | null>(null);
   const { resolvedTheme } = useTheme();
-  const [videoSrc, setVideoSrc] = useState<string | null>(null);
+  const [shouldLoadVideos, setShouldLoadVideos] = useState(false);
+  const [activeVideo, setActiveVideo] = useState<ActiveVideo>("forward");
 
-  // Defer loading video until after mount so it doesn't block initial paint
+  // Defer loading the videos until after mount so they don't block initial paint.
   useEffect(() => {
-    setVideoSrc(VIDEO_SRC);
+    setShouldLoadVideos(true);
   }, []);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video || !resolvedTheme || !videoSrc) return;
+    const forwardVideo = forwardVideoRef.current;
+    const reverseVideo = reverseVideoRef.current;
+    if (!forwardVideo || !reverseVideo || !resolvedTheme || !shouldLoadVideos) {
+      return;
+    }
 
-    let cleanup: (() => void) | void;
+    let isCancelled = false;
+    let didApplyTheme = false;
+
+    const stopVideos = () => {
+      forwardVideo.pause();
+      reverseVideo.pause();
+    };
+
+    const showVideo = (video: ActiveVideo) => {
+      activeVideoRef.current = video;
+      setActiveVideo(video);
+    };
 
     const applyTheme = () => {
-      cleanup?.();
-
-      if (resolvedTheme === "dark") {
-        const wasLight = previousThemeRef.current === "light";
-        previousThemeRef.current = "dark";
-
-        if (wasLight) {
-          video.currentTime = LIGHT_PAUSE_AT_SECONDS;
-          video.pause();
-
-          video.playbackRate = PLAYBACK_RATE;
-          let rafId: number;
-          const playBackwards = () => {
-            video.currentTime -= PLAYBACK_RATE / 60;
-            if (video.currentTime <= DARK_PAUSE_AT_SECONDS) {
-              video.currentTime = DARK_PAUSE_AT_SECONDS;
-              video.pause();
-              return;
-            }
-            rafId = requestAnimationFrame(playBackwards);
-          };
-          rafId = requestAnimationFrame(playBackwards);
-          cleanup = () => cancelAnimationFrame(rafId);
-        } else {
-          video.currentTime = DARK_PAUSE_AT_SECONDS;
-          video.pause();
-        }
-      } else {
-        const wasDark = previousThemeRef.current === "dark";
-        previousThemeRef.current = "light";
-
-        if (wasDark) {
-          video.currentTime = 0;
-          video.playbackRate = PLAYBACK_RATE;
-          video.play().catch(() => {});
-
-          const stopAtFour = () => {
-            if (video.currentTime >= LIGHT_PAUSE_AT_SECONDS) {
-              video.pause();
-              video.removeEventListener("timeupdate", stopAtFour);
-            }
-          };
-          video.addEventListener("timeupdate", stopAtFour);
-          cleanup = () => video.removeEventListener("timeupdate", stopAtFour);
-        } else {
-          video.currentTime = LIGHT_PAUSE_AT_SECONDS;
-          video.pause();
-        }
+      if (
+        isCancelled ||
+        didApplyTheme ||
+        forwardVideo.readyState < HTMLMediaElement.HAVE_METADATA ||
+        reverseVideo.readyState < HTMLMediaElement.HAVE_METADATA
+      ) {
+        return;
       }
+
+      didApplyTheme = true;
+      stopVideos();
+
+      const nextTheme = resolvedTheme === "dark" ? "dark" : "light";
+      const previousTheme = previousThemeRef.current;
+      previousThemeRef.current = nextTheme;
+
+      if (previousTheme === null) {
+        showVideo("forward");
+        forwardVideo.currentTime =
+          nextTheme === "dark" ? DARK_FRAME_SECONDS : LIGHT_FRAME_SECONDS;
+        reverseVideo.currentTime =
+          nextTheme === "dark" ? LIGHT_FRAME_SECONDS : DARK_FRAME_SECONDS;
+        return;
+      }
+
+      if (previousTheme === nextTheme) return;
+
+      const currentVideo =
+        activeVideoRef.current === "forward" ? forwardVideo : reverseVideo;
+      const targetDirection: ActiveVideo =
+        nextTheme === "dark" ? "reverse" : "forward";
+      const targetVideo =
+        targetDirection === "forward" ? forwardVideo : reverseVideo;
+
+      if (activeVideoRef.current !== targetDirection) {
+        targetVideo.currentTime = Math.max(
+          DARK_FRAME_SECONDS,
+          Math.min(
+            LIGHT_FRAME_SECONDS,
+            LIGHT_FRAME_SECONDS - currentVideo.currentTime,
+          ),
+        );
+      }
+
+      showVideo(targetDirection);
+
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        targetVideo.currentTime = LIGHT_FRAME_SECONDS;
+        return;
+      }
+
+      targetVideo.playbackRate = PLAYBACK_RATE;
+      targetVideo.play().catch(() => {
+        if (!isCancelled) {
+          targetVideo.currentTime = LIGHT_FRAME_SECONDS;
+        }
+      });
     };
 
+    forwardVideo.addEventListener("loadedmetadata", applyTheme);
+    reverseVideo.addEventListener("loadedmetadata", applyTheme);
     applyTheme();
-    video.addEventListener("loadedmetadata", applyTheme);
+
     return () => {
-      video.removeEventListener("loadedmetadata", applyTheme);
-      cleanup?.();
+      isCancelled = true;
+      forwardVideo.removeEventListener("loadedmetadata", applyTheme);
+      reverseVideo.removeEventListener("loadedmetadata", applyTheme);
+      stopVideos();
     };
-  }, [resolvedTheme, videoSrc]);
+  }, [resolvedTheme, shouldLoadVideos]);
+
+  const videoClassName =
+    "absolute inset-0 block h-full w-full rounded-lg object-cover";
 
   return (
-    <div className="mx-auto md:mx-0 w-[340px] sm:w-[420px] md:w-[480px] aspect-[9/16]">
+    <div
+      className="relative mx-auto aspect-[9/16] w-[340px] sm:w-[420px] md:mx-0 md:w-[480px]"
+      role="img"
+      aria-label="Video of Vaay"
+    >
       <video
-        ref={videoRef}
+        ref={forwardVideoRef}
         width={720}
         height={1280}
-        className="block w-full h-full rounded-lg object-cover"
-        src={videoSrc ?? undefined}
+        className={`${videoClassName} ${activeVideo === "forward" ? "opacity-100" : "opacity-0"}`}
+        src={shouldLoadVideos ? FORWARD_VIDEO_SRC : undefined}
         preload="metadata"
         muted
         playsInline
-        aria-label="Video of Vaay"
+        aria-hidden="true"
+      />
+      <video
+        ref={reverseVideoRef}
+        width={720}
+        height={1280}
+        className={`${videoClassName} ${activeVideo === "reverse" ? "opacity-100" : "opacity-0"}`}
+        src={shouldLoadVideos ? REVERSE_VIDEO_SRC : undefined}
+        preload="metadata"
+        muted
+        playsInline
+        aria-hidden="true"
       />
     </div>
   );
