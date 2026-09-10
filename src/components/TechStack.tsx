@@ -105,6 +105,10 @@ const techStack: TechItem[] = [
     icon: "/tech/wordpress.svg",
   },
   {
+    name: "Shopify",
+    icon: "/tech/shopify.svg",
+  },
+  {
     name: "Zapier",
     icon: "/tech/zapier.svg",
   },
